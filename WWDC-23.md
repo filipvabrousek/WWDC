@@ -98,6 +98,34 @@ struct ContentView: View {
 ```
 
 
+```swift
+
+struct ContentView: View {
+    @State var vis: NavigationSplitViewVisibility = .automatic // 135306
+    
+    var body: some View {
+        NavigationSplitView(columnVisibility: $vis) {
+            List {
+                
+                
+                NavigationLink(destination: Text("I")) {
+                    Text("O") // 135710
+                }
+            }
+        } detail: {
+            Text("OO")
+        }
+
+    }
+}
+
+// 134441: Observation framework exists
+```
+
+
+
+
+
 ## Keyframe didn't get it to work
 * crashes
 
