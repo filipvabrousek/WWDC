@@ -39,7 +39,7 @@ BirdAnim()
 
 
 ### SubscriptionStoreView
-````swift
+```swift
 import StoreKit
 
 struct StoreView: View {
@@ -56,14 +56,10 @@ struct StoreView: View {
 ## watchOS
 
 ```swift
-
-
-// watchOS
 struct ContentView: View {
    @State var show = false
    var body: some View {
        TabView {
-           
            
            Button("Hello"){
                
@@ -83,10 +79,6 @@ struct ContentView: View {
 
 ## SwiftData
 Just use checkbox when creating a new project
-
-
-
-
 
 
 ## VisionOS
