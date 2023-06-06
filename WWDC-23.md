@@ -80,9 +80,28 @@ struct ContentView: View {
 
 
 ## Keyframe didn't get it to work
-crashes
+* crashes
 
 ```swift
+
+import SwiftUI // 124624 SwiftUI not imported warning
+import MapKit
+
+extension CLLocationCoordinate2D { // 132043
+ 
+    static func applePark() -> CLLocationCoordinate2D {
+        return .init(latitude: 20, longitude: 30)
+    }
+    
+    static func infiniteLoop() -> CLLocationCoordinate2D {
+        return .init(latitude: 20, longitude: 30)
+    }
+  //  var applePark =
+
+    
+   // var infiniteLoop = .init(latitude: 40, longitude: 60)
+}
+
 
 
 struct GenericViewsss: View {
