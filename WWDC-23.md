@@ -78,6 +78,25 @@ struct ContentView: View {
 ```
 
 
+```swift
+struct ContentView: View {
+    @State var show = false
+    var body: some View {
+        NavigationStack {
+            Button("Show"){
+                show.toggle()
+            }.toolbar {
+                ToolbarItem(placement: .topBarTrailing) { // 133235
+                    Button("New in watchOS10"){ // 133430 saw
+                        
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
 
 ## Keyframe didn't get it to work
 * crashes
