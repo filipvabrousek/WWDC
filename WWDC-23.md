@@ -77,6 +77,53 @@ struct ContentView: View {
 // 122613
 ```
 
+
+
+## Keyframe didn't get it to work
+crashes
+
+```swift
+
+
+struct GenericViewsss: View {
+    @State var show = false
+    @State var position = MapCameraPosition.region(MKCoordinateRegion.init(center: .init(latitude: 20, longitude: 30), span: .init(latitudeDelta: 0.05, longitudeDelta: 0.05)))
+    
+    
+    var body: some View {
+        
+        VStack {
+            
+            Button("Show"){
+                show.toggle()
+            }
+            
+            
+            Map(position: $position)
+                .mapCameraKeyframeAnimator(trigger: show) { _ in
+                    KeyframeTrack(\.centerCoordinate) { // 131828
+                        CubicKeyframe(CLLocationCoordinate2D.applePark(), duration: 1.1) // 131850
+                        CubicKeyframe(CLLocationCoordinate2D.infiniteLoop(), duration: 3.1) // 131850
+                    }
+                }
+            
+        }   
+    } 
+}
+
+
+
+// https://developer.apple.com/documentation/updates/swiftui
+// Changes
+
+
+
+
+
+
+
+```
+
 ## SwiftData
 Just use checkbox when creating a new project
 
