@@ -1,5 +1,4 @@
-## Prepare for visionOS
-
+# Prepare for VisionOS article
 
 
 At WWDC23 Apple has announced VisionOS along with 
@@ -123,3 +122,6 @@ struct ContentView: View {
     )
 })
 ```
+
+
+## Prepare for visionOS
