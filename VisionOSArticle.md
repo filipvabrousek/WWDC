@@ -1,9 +1,22 @@
 # Prepare for VisionOS article
 
 
-At WWDC23 Apple has announced VisionOS along with 
-* Xcode creates basic app from a template
+Tag it
+Copy paste code
+Tweet it
 
+Tweet:
+Apple has just announced VisionOS SDK
+
+
+
+At WWDC23 Apple has announced VisionOS along with 
+* Xcode creates basic app from app template s
+
+
+You have two options to choose from:
+
+In our example we can choose 
 
 
 ### App structure
