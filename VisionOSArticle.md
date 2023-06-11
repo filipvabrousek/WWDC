@@ -160,6 +160,11 @@ struct ContentView: View {
 ### Interact with geometry
 
 Back in Imm view, we attach the tapgeesture modifier, which allows us to move entity when we tap it.
+We create new transform using ```value.entity.transform```
+
+We set its using SIMD3 class in -z direction.
+Finally, we then use the translation move the entity in direction in 3 second interval and we use .easeInOut timing function for our animation.
+Latest 11/06
 
 ```swift
 struct ImmersiveView: View {
@@ -198,6 +203,7 @@ struct ImmersiveView: View {
 
 
 
+DONE 11/06 235623 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------
 
