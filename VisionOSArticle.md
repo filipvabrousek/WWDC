@@ -87,8 +87,6 @@ RealityView { content in
 
 Immersive space is space that can completely sourround the user.
 
-
-
 We will add immersive space right below the WindowGroup structure in the xx.swift file and use the id: "MySpace"
 
 ```swift
@@ -113,7 +111,6 @@ We do not need the update blocks as the content we want to display is static. We
 
 ```swift
 struct ImmersiveView: View {
-    @Environment(\.openImmersiveSpace) var openImmersiveSpace
 
     var body: some View {
 
@@ -135,7 +132,7 @@ struct ImmersiveView: View {
 
 
 We can add button to content View to open our ImSpace.
-
+We use ```openImmersiveSpace``` environment to open the immersive space.
 User can open the immersive space by tapping this button and he will be completely sourrounded by the content of your app.
 
 ```swift
