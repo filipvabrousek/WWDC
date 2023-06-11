@@ -92,6 +92,29 @@ RealityView { content in
 ### Immersive spaces
 
 Immersive space is space that can completely sourround the user.
+
+
+
+We will add immersive space right below the WindowGroup structure and use the id: "MySpace"
+
+```swift
+@main
+struct MyFirstImmersiveApp: App {
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }.windowStyle(.volumetric)
+
+        ImmersiveSpace(id: "ImmersiveSpace") {
+            ImmersiveView()
+        }
+    }
+}
+```
+
+
+We can add button to content View to open our ImSpace.
+
 User can open the immersive space by tapping this button and he will be completely sourrounded by the content of your app.
 
 ```swift
@@ -100,6 +123,7 @@ struct ContentView: View {
     @Environment(\.openImmersiveSpace) var openImmersiveSpace
 
     var body: some View {
+    // ...
         Button("Open") {
             Task {
                 await openImmersiveSpace(id: "ImmersiveSpace")
