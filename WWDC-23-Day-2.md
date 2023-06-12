@@ -155,8 +155,71 @@ struct CleversMaps: View { // 07/06
 
 
 ### TableColumnCustomization
+* custom added 12/06
+
 
 ```swift
+
+struct DogSightingsTable: View {
+    private var dogSightings: [DogSighting] = (1..<50).map {
+        .init(
+            name: "Sighting \($0)",
+            date: .now + Double((Int.random(in: -5..<5) * 86400)))
+    }
+
+    @SceneStorage("columnCustomization")
+    private var columnCustomization: TableColumnCustomization<DogSighting>
+    @State private var selectedSighting: DogSighting.ID?
+    
+    var body: some View {
+        
+        
+        VStack {
+            
+            
+            Table(
+                dogSightings, selection: $selectedSighting,
+                columnCustomization: $columnCustomization)
+            {
+                TableColumn("Dog Name", value: \.name)
+                    .customizationID("name")
+                
+                TableColumn("Date") {
+                    Text($0.date, style: .date)
+                }
+                .customizationID("date")
+            }
+            
+            
+            
+            Button("Hide"){
+                //112053 sth
+                
+                columnCustomization[visibility: "date"] = .hidden
+                // 112409 sw3
+                // 113445 Works !!!!!
+            
+                
+                // 113414
+            }
+        }
+    }
+    
+    struct DogSighting: Identifiable {
+        var id = UUID()
+        var name: String
+        var date: Date
+    }
+}
+
+
+// 11:15:10 I know what it is, you can hide try it here
+```
+
+
+
+
+```
 struct Sight: Identifiable {
     var id = UUID()
     var name: String
