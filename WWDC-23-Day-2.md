@@ -27,10 +27,10 @@ struct TypedLang: View {
 
 
 
-### scrollPisition and targetLayout
+
+### scrollPosition and targetLayout
 
 ```swift
-
 struct TargetPos: View {
     @State private var scrollPosition: Int? = 0
     
@@ -41,21 +41,17 @@ struct TargetPos: View {
             }
             
             ForEach(1..<100, id: \.self) { number in
-
                     Text(verbatim: number.formatted())
                     .frame(width: 200, height: 30)
                     .background(.orange)
-                
-                
             }
             .scrollTargetLayout() // 114236 settle on geometrz
            
-        }//.frame(height: 300)
+        }
         .scrollPosition(id: $scrollPosition)
       //  .safeAreaInset(edge: .top)
     }
 }
-
 ```
 
 ### containerRelativeFrame
@@ -92,7 +88,7 @@ struct MyScrolls: View {
 
 
 ### allowedDynamicRange
-
+* can alsow work on Views 110304 (11/06)
 ```swift
 struct AsyncNew: View { // AsyncImage new
     @State var show = false
