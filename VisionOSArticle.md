@@ -118,7 +118,7 @@ struct ImmersiveView: View {
             content in
                 // Add the initial RealityKit content
                 if let scene =
-                try ? await Entity(named: "ImmScene", in: realityKitContentBundle) {
+                try ? await Entity(named: "Immersive", in: realityKitContentBundle) {
                     content.add(scene)
                 }
         }
