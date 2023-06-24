@@ -125,6 +125,15 @@ public struct HandActivationBehavior : Equatable { // 24447
 //     public var startLocation3D: Point3D { get }   31900
 
 
+// 35836
+public struct OpenImmersiveSpaceAction : Sendable {
+
+// 36300
+public struct OrnamentAttachmentAnchor : Sendable {
+    /// The anchor point for the ornament expressed as an alignment relative to the scene.
+    public static func scene(alignment: Alignment) -> OrnamentAttachmentAnchor
+}
+
 
 public struct PhysicalMetricsConverter : Equatable { // 37690
 
@@ -140,10 +149,103 @@ public struct RotateGesture3D : Gesture { // 41045
 // extension MagnifyGesture.Value { 21891
 
  
+public struct RotateGesture3D : Gesture { // 41045
+
+public struct RoundedBorderTextEditorStyle : TextEditorStyle { // 23:05:40 
+
+extension Scene {
+ public func immersionStyle(selection: Binding<ImmersionStyle>, in styles: ImmersionStyle...) -> some Scene
+
+ windowsStyle for macOS and xrOS
+
+
+
+ // 231150 48371
+ SpatialEventCollection
+   case directPinch
+   case pose3D // 231328
+
+
+
+   // 23:17:32
+
+   SpatialEventCollection: Event
+   selectionRay: Ray3D
+   Pose3D // 23:19:00  48549
+
+
+
+   // 23:19:45
+   SurroundingsEffect // 50932
+
+
+   TextInputDictationActivation
+    public static let onSelect: TextInputDictationActivation // 57548
+    // 23:20:45
+   // Dictation will be activated when the microphone is selected or looked on xrOS.
+    onLook
+
+
+
+TextInputDictationBehavior // 232143
+automatic
+inline
 
 
 
 
+bottomOrnament // 232148
+public struct ToolbarPlacement {
+
+// 59623
+
+ContentView()
+///         .navigationTitle("Browser")
+///         .toolbarRole(.browser)
+///         .toolbar {
+///             ToolbarItem(placement: .primaryAction) {
+///                 AddButton()
+///             }
+///          }
+///
+
+
+
+// 61042
+UIHostingOrnament //232341 Nice !!!
+
+// 232428
+// Asbtract class
+UIOrnament
+
+
+// 232508
+UnitPoint3D 62090
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+ 
+
+
+ 
 
 
 
