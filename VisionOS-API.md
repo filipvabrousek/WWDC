@@ -70,13 +70,76 @@ extension EdgeInsets {
     public var top: CGFloat // more...
 
 
+
+extension EdgeInsets3D : Animatable {
+
+    /// The data to animate.
+    public var animatableData: EdgeInsets3D.AnimatableData
+
+
+extension EnvironmentValues {
+  public var dismissImmersiveSpace: DismissImmersiveSpaceAction { get }
+
+
+public var physicalMetrics: PhysicalMetricsConverter { get } // 22:18:29 15734
+
+
+
+ public var isHoverEffectEnabled: Bool // 22:19:28
+public var accessibilityPrefersCameraAnchorAlternative: Bool { get } // 22:19:48
+
+
+env vals
+  public var dismissWindow: DismissWindowAction { get }
+
+
+@available(xrOS 1.0, *)
+public static let extraLargeTitle: Font // 18693 elt2
+
+        
+
+ public struct FullImmersionStyle : ImmersionStyle {
+
+
+   public func transform(in coordinateSpace: some CoordinateSpaceProtocol) -> AffineTransform3D? // 222428
+
+
+   Model3D("Pawn")
+    /// .gesture(DragGesture().handActivationBehavior(.pinch)
+    /// .updating($chessDragState) { value, state, _ in
+    ///    ...
+    /// }) // 224512
+
+
+    public enum GlassBackgroundDisplayMode : Sendable {
+    /// Always create glass material.
+    case always
+
+
     
 
 
+public struct HandActivationBehavior : Equatable { // 24447
+
+// ImmersionStyle
+//     public var startLocation3D: Point3D { get }   31900
+
+
+
+public struct PhysicalMetricsConverter : Equatable { // 37690
+
+
+public struct PlainTextEditorStyle : TextEditorStyle { // 38642
+
+
+
+public struct RotateGesture3D : Gesture { // 41045
+
+
+
+// extension MagnifyGesture.Value { 21891
 
  
-
-
 
 
 
