@@ -223,6 +223,142 @@ UIOrnament
 UnitPoint3D 62090
 
 
+extension VectorArithmetic where Self : Scalable3D { // 62579
+    /// Multiplies each component of this value by the given value.
+    public mutating func scale(by rhs: Double)
+}
+
+
+
+
+ @inlinable public func transform3DEffect(_ transform: AffineTransform3D) -> some View   // 63334
+
+ public func preferredSurroundingsEffect(_ effect: SurroundingsEffect?) -> some View // 63428
+
+ textEditorStyle
+ scaleEffect // 70922
+
+
+
+// 71054
+public func ornament<Content>(visibility: Visibility = .automatic,
+
+// 71133
+ public func glassBackgroundEffect(displayMode: GlassBackgroundDisplayMode = .always) -> some View // 
+
+
+// 232952
+
+  TabView {                // 71174
+    ///         NavigationView {
+    ///             ContentView()
+    ///                 .toolbarBackground(
+    ///                     .blue, for: .navigationBar, .tabBar)
+    ///                 .toolbarColorScheme(
+    ///                     .dark, for: .navigationBar, .tabBar)
+    ///         }
+    ///     }
+    ///
+
+
+ 
+
+
+// 73817
+
+ContentView()
+    ///     .visualEffect3D { content, geometryProxy in
+    ///         content.offset(z: geometryProxy.size.depth)
+    ///     }
+
+
+
+
+ public func offset(z: CGFloat) -> some View // 74005
+
+
+public func hoverEffect(_ effect: HoverEffect = .automatic) -> some View  // 75595
+
+
+public func searchDictationBehavior(_ dictationBehavior: TextInputDictationBehavior) -> some View // 76334 
+
+
+
+@inlinable public func padding3D(_ insets: EdgeInsets3D) -> some View // 78018 24/06
+
+
+ Text("Rotation by passing an angle in degrees")
+    ///         .perspectiveRotationEffect(.degrees(45), axis: (x: 0, y: 1, z: 0))
+    ///         .border(Color.gray) // 233208  80731
+
+
+    // 83718 233253
+extension VisualEffect {
+    public func transform3D(_ transform: AffineTransform3D) -> some VisualEffect
+}
+
+
+public func rotation3DEffect(_ angle: Angle, axis: RotationAxis3D, anchor: UnitPoint3D = .center) -> some VisualEffect  // 83476
+
+
+
+// 84142
+ public func offset(z: CGFloat) -> some VisualEffect
+
+
+ // 84230
+public struct VolumetricWindowStyle : WindowStyle {
+
+
+// 23:35:17 
+extension Rect3D : Animatable { // 85536
+ public typealias AnimatableData = AnimatablePair<Point3D.AnimatableData, Size3D.AnimatableData>
+}
+
+extension Size3D : VectorArithmetic { // 85582
+    /// Multiplies each component of this value by the given value.
+    public mutating func scale(by factor: Double)
+
+
+// 85591
+extension Size3D : Animatable {
+
+
+// 85789
+extension Vector3D : Animatable, VectorArithmetic {
+
+    /// Returns the dot-product of this vector arithmetic instance with itself.
+    public var magnitudeSquared: Double { get }
+
+    /// The type defining the data to animate.
+    public typealias AnimatableData = Vector3D
+}
+
+
+
+
+extension PreviewCamera { // 233718
+// 85828
+
+init(from point, lookingAt: // 233728
+
+
+extension Angle2D : Animatable { // 233757
+
+
+// 233856 done
+
+
+
+
+
+
+
+    
+
+ 
+
+
 
 
 
