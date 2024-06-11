@@ -167,6 +167,7 @@ struct ScrollDeclaratingView: View {
 ## LinePlot
 
 ```swift
+import Charts 
 struct LineView: View {
     var body: some View {
         Chart {
