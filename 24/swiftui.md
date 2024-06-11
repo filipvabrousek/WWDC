@@ -164,6 +164,26 @@ struct ScrollDeclaratingView: View {
 
 
 
+## LinePlot
+
+```swift
+struct LineView: View {
+    var body: some View {
+        Chart {
+            LinePlot(x: "x", y: "y"){ x in
+                x * x
+            }
+            .lineStyle(StrokeStyle(lineWidth: 3,
+                               lineCap: .round))
+                .foregroundStyle(.green)
+        }
+        .chartXScale(domain: -10...10)
+         .chartYScale(domain: -10...10)
+        // does not work with .range
+        // .border(.green)
+    }
+}
+```
 
 
 
