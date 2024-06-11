@@ -170,5 +170,67 @@ struct ScrollDeclaratingView: View {
 
 
 
-## not working
+## Notes
 * New Control Widget add (not working)
+* List, Text, Image still backed by the same
+
+
+## Not working
+
+
+
+```swift
+class Ship: Identifiable {
+    var name: String
+    var id: UUID
+    
+    init(name: String){
+        self.name = name
+        self.id = UUID()
+    }
+}
+
+struct ScrollTargetView: View {
+    @State var isBeyondZero = false
+    @State var ships = [Ship(name: "Icon"),
+                        Ship(name: "Seascape"),
+                        Ship(name: "Oasis") ]
+    
+    var body: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(0...24, id: \.self) { val in
+                    Text("Item \(val)")
+                        .bold()
+                        .frame(width: 100, height: 100)
+                        .foregroundStyle(isBeyondZero ? .orange : .green)
+                }
+            }.scrollTargetLayout()
+            
+        }.onScrollTargetVisibilityChange(for: Ship.ID.self, threshold: 0.3) { cards in
+            print("Hello")
+        }
+    }
+}
+```
+
+
+```swift
+struct TextSelectionEditor: View {
+    @State var text: String = ""
+    @State var selection: TextSelection? = nil
+    
+    var body: some View {
+        VStack {
+            TextEditor(text: $text, selection: $selection)
+            
+            if selection?.indices != nil {
+                Text(selection?.ranges)
+               /* ForEach(selection!.indices, id: \.self){ r in
+                    Text(r)
+                }*/
+            }
+        }.textSelectionAffinity(.upstream) // 9:49:41
+    }
+}
+`¨¨
