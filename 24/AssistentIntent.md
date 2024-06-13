@@ -26,6 +26,8 @@ struct AssistantIntentTestApp: App {
 
 
 ```swift
+import SwiftUI
+import AppIntents
 
 @MainActor @Observable
 final class ModelManager: ObservableObject, Sendable {
