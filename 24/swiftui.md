@@ -22,6 +22,7 @@ struct ContentView: View {
 ```
 
 
+
 ## mix
 
 ```swift
@@ -367,13 +368,40 @@ struct MyV: View {
 ```
 
 
+## SearchFocused
+
+```swift
+
+struct SearchView: View {
+    @State var show = ""
+    @FocusState var isSearchFocused: Bool
+   
+    var body: some View {
+        NavigationStack {
+            Text("A")
+            Button("Focus"){
+                if !isSearchFocused{
+                    isSearchFocused = true
+                }
+            }
+        }.searchable(text: $show)
+            .searchFocused($isSearchFocused)
+    }
+}
+```
+
+
+
 ## Notes
 * New Control Widget add (not working)
 * List, Text, Image still backed by the same
 
 
-## Not working
-* visionOS: ```volumeWorldAlignment```, ```defaultWorldScaling```
+## Missing
+* visionOS: ```volumeWorldAlignment```, ```defaultWorldScaling``` not working
+* scrolling
+* matchedTransitionSource
+* tableColumnForEach
 
 
 ```swift
