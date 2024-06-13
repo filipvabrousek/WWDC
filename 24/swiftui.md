@@ -373,7 +373,7 @@ struct MyV: View {
 
 
 ## Not working
-
+* visionOS: ```volumeWorldAlignment```, ```defaultWorldScaling```
 
 
 ```swift
