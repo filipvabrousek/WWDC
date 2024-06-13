@@ -347,6 +347,26 @@ struct Cards<Content: View>: View {
 
 
 
+
+
+```swift
+import RealityKit // in other file than App struct
+
+struct MyV: View {
+    var body: some View { // RealityKit.ARView: UIView
+        RealityView { content in
+            let mesh = MeshResource.generateCylinder(height: 0.03, radius: 0.07)
+            let entity = ModelEntity(mesh: mesh, materials: [SimpleMaterial(color: .green, isMetallic: false)])
+            content.add(entity)
+        }
+
+    }
+}
+
+
+```
+
+
 ## Notes
 * New Control Widget add (not working)
 * List, Text, Image still backed by the same
