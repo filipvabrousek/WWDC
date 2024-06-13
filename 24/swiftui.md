@@ -211,6 +211,163 @@ struct LineView: View {
 
 
 
+## presentationSizing
+
+```swift
+
+struct SimplePres: View {
+    @State var show = false
+    var body: some View {
+        Button("Show"){
+            show.toggle()
+        }.sheet(isPresented: $show) {
+            Text("Form sheet")
+                .font(.title)
+                .presentationSizing(.form.fitted(horizontal: true,
+                                                 vertical: false))
+            // assuress correct sizing on the iPad
+            // fitted allows it to expand in vertical or hoizontal way
+            // sizing
+        }
+    }
+}
+```
+
+
+## matchedTransition
+
+```swift
+
+
+struct HeroAnimationView: View {
+    @Namespace var hero
+    
+    var body: some View {
+        NavigationStack {
+            NavigationLink {
+                Text("Detail")
+                    .navigationTransition(.zoom(sourceID: "myID", in: hero))
+            } label: {
+                Text("Thumbnail")
+            }
+            .matchedTransitionSource(id: "myID", in: hero)
+        }
+    }
+}
+
+```
+
+
+## ScrollPos
+
+```swift
+struct ScrollPos: View {
+    @State private var position: ScrollPosition = .init(point: .zero)
+    
+    var body: some View {
+        ScrollView {
+            ForEach(0..<1000){ item in
+                Text(item.formatted())
+            }
+            
+            Button("Jump to top"){
+                position = ScrollPosition(point: .zero)
+            }
+            
+        }.scrollPosition($position)
+    }
+}
+```
+
+
+## Custom Cards
+
+```swift
+
+struct Wrapper<Content: View>: View {
+    var color: Color
+    var content: Content
+    
+    init(_ color: Color, @ViewBuilder content: () -> Content){
+        self.color = color
+        self.content = content()
+    }
+    
+    var body: some View {
+        content.border(color, width: 3)
+    }
+}
+
+
+
+struct Cards<Content: View>: View {
+    var content: Content
+    
+    init(@ViewBuilder content: () -> Content){
+        self.content = content()
+    }
+    
+    
+    var body: some View {
+        VStack {
+            Group(subviewsOf: content){ subviews in
+               
+                    if subviews.count > 1 {
+                        HStack {
+                            Wrapper(.green) {subviews[0]}
+                            Wrapper(.green) {subviews[1]}
+                        }
+                    } else {
+                        Text("Not enough views")
+                    }
+                    
+                    if subviews.count >= 2 {
+                        subviews[2...]
+                    }
+                
+                 
+            }
+        }
+    }
+}
+```
+
+
+## Custom Containers
+
+```swift
+ MyContainer {
+               Text("Hello").containerValue(\.myCustomValue, "HelloValue")
+               Text("Nice").containerValue(\.myCustomValue, "NiceValue")
+               Text("Best").containerValue(\.myCustomValue, "BestValue")
+           }
+```
+
+```swift
+ struct MyContainer<Content: View>: View {
+     var content: Content
+
+     init(@ViewBuilder content: () -> Content) {
+         self.content = content()
+     }
+
+     var body: some View {
+         Group(subviewsOf: content) { subviews in
+             ForEach(subviews) { subview in
+                 // Display each view side-by-side with its custom value.
+                 HStack {
+                     subview
+                     Text(subview.containerValues.myCustomValue)
+                 }
+                 
+             }
+         }
+     }
+ }
+```
+
+
+
 ## Notes
 * New Control Widget add (not working)
 * List, Text, Image still backed by the same
