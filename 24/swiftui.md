@@ -528,7 +528,6 @@ struct TableImprove: View {
             }
         
             TableColumnForEach(questions, id: \.data){ q in
-                
                 TableColumn(q.subject) { datas in
                     Text(datas.name).bold()
                 }
