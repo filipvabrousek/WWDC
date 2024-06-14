@@ -391,19 +391,6 @@ struct SearchView: View {
 ```
 
 
-
-## Notes
-* New Control Widget add (not working)
-* List, Text, Image still backed by the same
-
-
-## Missing
-* visionOS: ```volumeWorldAlignment```, ```defaultWorldScaling``` not working
-* scrolling
-* matchedTransitionSource
-* tableColumnForEach
-
-
 ```swift
 
 class Ship: Identifiable {
@@ -453,6 +440,20 @@ struct ScrollTargetView: View {
 }
 
 ```
+
+
+
+## Notes
+* New Control Widget add (not working)
+* List, Text, Image still backed by the same
+
+
+## Missing
+* visionOS: ```volumeWorldAlignment```, ```defaultWorldScaling``` not working
+* scrolling
+* matchedTransitionSource
+* tableColumnForEach
+
 
 
 ```swift
