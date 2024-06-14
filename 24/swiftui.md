@@ -463,6 +463,7 @@ struct ScrollTargetView: View {
 ## Missing
 * visionOS: ```volumeWorldAlignment```, ```defaultWorldScaling``` not working
 * tableColumnForEach
+* symbolEffect
 
 
 
