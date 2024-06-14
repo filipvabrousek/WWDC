@@ -452,7 +452,24 @@ struct ScrollTargetView: View {
 ```
 
 
+## SymbolEffect
 
+```swift
+struct BreatheView: View {
+    @State var show = false
+    
+    var body: some View {
+        Image(systemName: "bell.slash")
+           // .symbolEffect(.breathe) // .breathe, .rotate, .wiggle are new options
+            .scaleEffect(3.0)
+            .symbolEffect(.wiggle.right.up, value: show) // only up is shown
+            .onTapGesture {
+                show.toggle()
+            }
+}
+}
+
+```
 
 
 ## Notes
@@ -463,7 +480,7 @@ struct ScrollTargetView: View {
 ## Missing
 * visionOS: ```volumeWorldAlignment```, ```defaultWorldScaling``` not working
 * tableColumnForEach
-* symbolEffect
+
 
 
 
