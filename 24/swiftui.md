@@ -472,6 +472,72 @@ struct BreatheView: View {
 ```
 
 
+```swift
+
+
+enum Grade {
+    case A
+    case B
+    case C
+    case D
+    case E
+    case FX
+    case F
+}
+
+class Subject: Identifiable {
+    var name: String
+    var grade: Grade
+    var questions: [String]
+    
+    init(name: String, grade: Grade, questions: [String]){
+        self.name = name
+        self.grade = grade
+        self.questions = questions
+    }
+}
+
+class Question {
+    var subject: String
+    var data: String
+    init(subject: String, data: String){
+        self.subject = subject
+        self.data = data
+    }
+}
+
+
+
+struct TableImprove: View {
+    @State var subjects: [Subject] = [
+        .init(name: "INF", grade: .A, questions: ["A..."]),
+        .init(name: "PKS", grade: .A, questions: ["B..."]),
+        .init(name: "SWI", grade: .B, questions: ["C..."])
+    ]
+    
+    @State var questions: [Question] = [
+        .init(subject: "INFa", data: "A...a"),
+        .init(subject: "PKSa", data: "B...a"),
+        .init(subject: "SWIa", data: "C...a")
+    ]
+    
+    var body: some View {
+        Table(subjects){
+            TableColumn("Subjects"){ sub in
+                Text(sub.name)
+            }
+        
+            TableColumnForEach(questions, id: \.data){ q in
+                
+                TableColumn(q.subject) { datas in
+                    Text(datas.name).bold()
+                }
+            }
+        }
+    }
+}
+```
+
 ## Notes
 * New Control Widget add (not working)
 * List, Text, Image still backed by the same
@@ -479,8 +545,6 @@ struct BreatheView: View {
 
 ## Missing
 * visionOS: ```volumeWorldAlignment```, ```defaultWorldScaling``` not working
-* tableColumnForEach
-
 
 
 
