@@ -219,21 +219,31 @@ struct SimplePres: View {
 ```swift
 
 
+// Only options are .zoom and .automatic
 struct HeroAnimationView: View {
     @Namespace var hero
     
     var body: some View {
         NavigationStack {
             NavigationLink {
-                Text("Detail")
-                    .navigationTransition(.zoom(sourceID: "myID", in: hero))
+               Image("icon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300)
+                    .navigationTransition(.zoom(sourceID: "myID", in: hero)) // it slides from right without this
             } label: {
-                Text("Thumbnail")
+                Image("icon")
+                     .resizable()
+                     .clipShape(.circle)
+                     .aspectRatio(contentMode: .fit)
+                     .frame(width: 60)
+                     .matchedTransitionSource(id: "myID", in: hero) // Circle gets smaller smoothly, ID's need to match
             }
-            .matchedTransitionSource(id: "myID", in: hero)
+            
         }
     }
 }
+
 
 ```
 
@@ -443,6 +453,8 @@ struct ScrollTargetView: View {
 
 
 
+
+
 ## Notes
 * New Control Widget add (not working)
 * List, Text, Image still backed by the same
@@ -450,8 +462,6 @@ struct ScrollTargetView: View {
 
 ## Missing
 * visionOS: ```volumeWorldAlignment```, ```defaultWorldScaling``` not working
-* scrolling
-* matchedTransitionSource
 * tableColumnForEach
 
 
