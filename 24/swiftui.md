@@ -405,6 +405,7 @@ struct SearchView: View {
 
 
 ```swift
+
 class Ship: Identifiable {
     var name: String
     var id: UUID
@@ -417,26 +418,40 @@ class Ship: Identifiable {
 
 struct ScrollTargetView: View {
     @State var isBeyondZero = false
-    @State var ships = [Ship(name: "Icon"),
+    @State var ships = [
+        Ship(name: "Icon"),
                         Ship(name: "Seascape"),
-                        Ship(name: "Oasis") ]
+                        Ship(name: "Oasis"),
+                        Ship(name: "Luminosa"),
+                        Ship(name: "Ruby Princess")
+    ]
     
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(0...24, id: \.self) { val in
-                    Text("Item \(val)")
+                ForEach(ships, id: \.id) { val in
+                    Text(val.name)
                         .bold()
-                        .frame(width: 100, height: 100)
+                        .frame(width: 300, height: 300)
+                        .border(.green)
                         .foregroundStyle(isBeyondZero ? .orange : .green)
                 }
             }.scrollTargetLayout()
+            // necessary for .scrolltargetVisibility()
             
-        }.onScrollTargetVisibilityChange(for: Ship.ID.self, threshold: 0.3) { cards in
-            print("Hello")
+        }
+        // Ship is considered on-screen if at least 1/3 of it is visible
+        .onScrollTargetVisibilityChange(idType: Ship.ID.self, threshold: 0.3) { action in
+            print("-----------------------------------------------------------")
+            print("On screen ships")
+            for el in action {
+                let ela = ships.filter {$0.id == el}.first!
+                print(ela.name)
+            }
         }
     }
 }
+
 ```
 
 
