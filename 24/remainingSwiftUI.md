@@ -173,3 +173,19 @@ struct IGenericView: View {
   Button("Context"){                  
   } .accessibilityHint(Text("Hey Siri, give us a hint!"))
 ```
+
+```swift
+struct SizeView: View {
+    var body: some View {
+        Rectangle()
+            .size(width: 100, height: 1000)
+            .foregroundStyle(.green)
+        
+        // Does not affect Circle
+    }
+}
+```
+
+```swift
+ .accessibilityRespondsToUserInteraction(true)
+```
