@@ -36,3 +36,18 @@ WindowGroup {
 ```
 
 
+```swift
+ Button("Show"){
+            show.toggle()
+        }.dropDestination(for: String.self) { ids, a in
+            return true
+        }
+```
+
+
+```swift
+TabView {
+Tab {}.springLoadingBehavior(.enabled)
+}.springLoadingBehavior(.disabled)
+```
+
