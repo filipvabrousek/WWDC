@@ -300,3 +300,49 @@ Button("A"){}.accessibilityActivationPoint(.center)
  Text("A").accessibilityDragPoint(.bottom, description: Text("Drag here"))
  Text("C").accessibilityDropPoint(.bottom, description: Text("Drop here"))
 ```
+
+
+# How. to. do. this.
+
+```swift
+
+struct SmartTextEditor: View {
+    @State var text: String = "Hello"
+    @State var selection: TextSelection? = nil
+
+    var body: some View {
+        VStack {
+            TextEditor(text: $text, selection: $selection)
+                .frame(height: 400)
+                .border(.green)
+            // .constant(.init(insertionPoint: String.Index.init(utf16Offset: 3, in: text)))
+            
+            BoundView(text: $selection)
+            
+            if let selection = selection {
+                Text("selected")
+            }
+        }
+        .textSelectionAffinity(.upstream)
+    }
+
+    private func getSubstrings(
+        text: String, selection: TextSelection
+    ) -> [Substring] {
+        print(selection)
+        return []
+    }
+}
+
+struct BoundView: View {
+    @Binding var text: TextSelection?
+    var body: some View {
+        if let text = text {
+            Text("AAA")
+        } else {
+            Text("No text")
+        }
+    }
+}
+
+```
