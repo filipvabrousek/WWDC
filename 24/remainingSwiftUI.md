@@ -7,4 +7,11 @@
  }.windowManagerRole(.principal)
 ```
 
+*visionOS
+
+```swift
+   ImmersiveSpace(id: "imm") {
+            MyView()
+        }.persistentSystemOverlays(.hidden)
+```
 
