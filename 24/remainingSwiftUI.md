@@ -76,7 +76,7 @@ Tab {
 
 
 
-
+## Okay
 ```swift
 Tab {
    Text("C")
@@ -97,4 +97,9 @@ Tab {
                             
     }
 }
+```
+
+
+```swift
+Tab  {}.accessibilityIdentifier("Hello")
 ```
