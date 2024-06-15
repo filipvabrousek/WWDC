@@ -228,3 +228,17 @@ struct DefaultScroll: View {
  Button("Show"){
         }.accessibilityHidden(true)
 ```
+
+```swift
+
+struct UOGenericView: View {
+    @State var show = false
+    var body: some View {
+        Button("Show"){
+            show.toggle()
+        }.popover(isPresented: $show, attachmentAnchor: .rect(.bounds)) {
+            Text("Wow")
+        }
+    }
+}
+```
