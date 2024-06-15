@@ -242,3 +242,13 @@ struct UOGenericView: View {
     }
 }
 ```
+
+```swift
+        Button("Show"){
+            show.toggle()
+        }.accessibilityInputLabels([
+            Text("Hello").bold()
+        ])
+}
+```
+
