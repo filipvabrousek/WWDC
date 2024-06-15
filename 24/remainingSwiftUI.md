@@ -189,3 +189,11 @@ struct SizeView: View {
 ```swift
  .accessibilityRespondsToUserInteraction(true)
 ```
+
+## Not working
+* not working on iPadOS or visionOS
+```swift
+Button("Hello"){
+            
+        }.defaultHoverEffect(.lift)
+```
