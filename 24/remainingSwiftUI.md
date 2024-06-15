@@ -164,3 +164,7 @@ struct IGenericView: View {
  Button("Context"){                  
   }.accessibilityLabel(Text("A"), isEnabled: true)
 ```
+
+```swift
+ @Environment(\.accessibilityAssistiveAccessEnabled) var enabled
+```
