@@ -251,3 +251,25 @@ struct UOGenericView: View {
         ])
 ```
 
+
+* visionOS, should also work on iOS
+```swift
+
+ Button("Ing."){
+            print("FAI")
+        }
+        .hoverEffect(ScaleAndFade())
+
+struct ScaleAndFade: CustomHoverEffect {
+    func body(content: Content) -> some CustomHoverEffect {
+        content
+            .hoverEffect { effect, isActive, _ in
+                effect.scaleEffect(isActive ? 1.03 : 0.97)
+                    .rotationEffect(isActive ? .degrees(45) : .degrees(0))
+            }
+            .hoverEffect { effect, isActive, _ in
+                effect.opacity(isActive ? 1 : 0.9)
+            }
+    }
+}
+```
