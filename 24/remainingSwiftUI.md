@@ -107,3 +107,27 @@ Tab  {}.accessibilityIdentifier("Hello")
 ```swift
 Tab {}.tabPlacement(.pinned) // cannto drag to toolbar
 ```
+
+
+## Not clear
+
+```swift
+
+struct MyRepresentable: UIViewControllerRepresentable {
+    
+    @Binding var isCollapsed: Bool
+    
+    func makeUIViewController(context: Context) -> some UIViewController {
+        return UIViewController()
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        context.animate {
+            print("Animate")
+        }
+    }
+}
+
+
+MyRepresentable(isCollapsed: .constant(true))
+```
