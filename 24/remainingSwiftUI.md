@@ -273,3 +273,20 @@ struct ScaleAndFade: CustomHoverEffect {
     }
 }
 ```
+
+```swift
+struct MenuView: View {
+    @State var show = "Hello"
+    
+    var body: some View {
+        Menu("A") {
+            Picker("Flavor", selection: $show){
+                Text("Hello")
+                Text("Hello")
+                Text("Hello")
+            }.labelsVisibility(.visible) // iOS and visionOS hide the "Flavor label" by default
+           
+        }
+    }
+}
+```
