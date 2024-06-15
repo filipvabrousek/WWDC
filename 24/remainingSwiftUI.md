@@ -298,5 +298,5 @@ Button("A"){}.accessibilityActivationPoint(.center)
 
 ```swift
  Text("A").accessibilityDragPoint(.bottom, description: Text("Drag here"))
-           Text("C")      .accessibilityDropPoint(.bottom, description: Text("Drop here"))
+ Text("C").accessibilityDropPoint(.bottom, description: Text("Drop here"))
 ```
