@@ -15,3 +15,8 @@
         }.persistentSystemOverlays(.hidden)
 ```
 
+```swift
+WindowGroup {
+           MyView()
+        }.windowToolbarLabelStyle(fixed: .iconOnly)
+```
