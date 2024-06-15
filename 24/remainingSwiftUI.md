@@ -7,7 +7,7 @@
  }.windowManagerRole(.principal)
 ```
 
-*visionOS
+* visionOS
 
 ```swift
    ImmersiveSpace(id: "imm") {
@@ -51,3 +51,10 @@ Tab {}.springLoadingBehavior(.enabled)
 }.springLoadingBehavior(.disabled)
 ```
 
+
+
+```swift
+TabView {
+Tab {
+}.badge(3)
+}
