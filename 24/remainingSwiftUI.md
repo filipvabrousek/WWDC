@@ -58,3 +58,43 @@ TabView {
 Tab {
 }.badge(3)
 }
+```
+
+
+
+
+
+
+## Not working
+```swift
+Tab {
+   Text("C")
+}.popover(isPresented: .constant(true)) {
+                        Text("Hello").padding(.all, 20)
+                    }
+```
+
+
+
+
+```swift
+Tab {
+   Text("C")
+} .swipeActions {
+   Button("Swipe"){
+                            
+    }
+}
+```
+
+
+
+```swift
+Tab {
+   Text("C")
+} .contextMenu {
+   Button("Swipe"){
+                            
+    }
+}
+```
