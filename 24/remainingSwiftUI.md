@@ -19,4 +19,6 @@
 WindowGroup {
            MyView()
         }.windowToolbarLabelStyle(fixed: .iconOnly)
+        .restorationBehavior(.disabled)
 ```
+
