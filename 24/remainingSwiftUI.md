@@ -131,3 +131,23 @@ struct MyRepresentable: UIViewControllerRepresentable {
 
 MyRepresentable(isCollapsed: .constant(true))
 ```
+
+
+## Working
+
+```swift
+
+struct IGenericView: View {
+    @State var show = false
+    var body: some View {
+        ScrollView {
+            ForEach(0..<30, id: \.self){_ in
+                Text("Hello")
+                    .frame(width: 200, height: 200)
+                    .border(.green, width: 3)
+            }.scrollTargetLayout()
+            
+        }.scrollTargetBehavior(.viewAligned) // This will stick on scrolling
+    }
+}
+```
