@@ -151,3 +151,11 @@ struct IGenericView: View {
     }
 }
 ```
+
+
+
+* ```accessibilityValue``` just to values without children
+```swift
+ Button("Context"){                  
+  } .accessibilityValue("A")
+```
