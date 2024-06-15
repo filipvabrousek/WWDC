@@ -222,3 +222,9 @@ struct DefaultScroll: View {
     }
 }
 ```
+
+
+```swift
+ Button("Show"){
+        }.accessibilityHidden(true)
+```
