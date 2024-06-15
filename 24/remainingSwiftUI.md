@@ -197,3 +197,10 @@ Button("Hello"){
             
         }.defaultHoverEffect(.lift)
 ```
+
+
+```swift
+ Button("Show"){
+            show.toggle()
+        }.hoverEffectDisabled()
+```
