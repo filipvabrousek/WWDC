@@ -22,3 +22,17 @@ WindowGroup {
         .restorationBehavior(.disabled)
 ```
 
+
+```swift
+// ScrollContentOffsetAdjustmentBehavior
+// defined on Transaction
+```
+
+* should be available in iOS, but not working
+```swift
+.sectionActions {
+            Button("Hello"){}
+        }
+```
+
+
