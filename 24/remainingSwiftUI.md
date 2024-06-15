@@ -103,3 +103,7 @@ Tab {
 ```swift
 Tab  {}.accessibilityIdentifier("Hello")
 ```
+
+```swift
+Tab {}.tabPlacement(.pinned) // cannto drag to toolbar
+```
