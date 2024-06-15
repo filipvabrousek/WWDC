@@ -290,3 +290,8 @@ struct MenuView: View {
     }
 }
 ```
+
+
+```swift
+Button("A"){}.accessibilityActivationPoint(.center)
+```
