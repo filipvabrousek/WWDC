@@ -249,6 +249,5 @@ struct UOGenericView: View {
         }.accessibilityInputLabels([
             Text("Hello").bold()
         ])
-}
 ```
 
