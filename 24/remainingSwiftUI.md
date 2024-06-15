@@ -204,3 +204,21 @@ Button("Hello"){
             show.toggle()
         }.hoverEffectDisabled()
 ```
+
+```swift
+
+
+struct DefaultScroll: View {
+    @State var show = false
+    var body: some View {
+        ScrollView([.horizontal, .vertical]) {
+            ForEach(0..<30, id: \.self){_ in
+                Text("Hello")
+                    .frame(width: 800, height: 200)
+                    .border(.green, width: 3)
+            }
+            
+        }.defaultScrollAnchor(.bottomLeading, for: .initialOffset) // Scrolled to the bottom
+    }
+}
+```
