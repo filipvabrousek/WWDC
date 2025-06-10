@@ -55,8 +55,8 @@ struct TabMax: View {
                     print("150245a") // 150333 the accesory view swapping is so cool
                 }
             }
-    } /
-/ 145223 wow instantly minimizes by itself is speed is too fast
+    }
+// 145223 wow instantly minimizes by itself is speed is too fast
     
 }
 
