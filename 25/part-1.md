@@ -1,4 +1,4 @@
-# .glassEffect
+## .glassEffect
 
 ```swift
    Button("Hello"){}
@@ -192,9 +192,6 @@ struct BackgroundExtend: View {
                              }
                          }
                      }
-            
-         
-          
         }
        
     }
@@ -202,3 +199,30 @@ struct BackgroundExtend: View {
 ```
 
 
+## AssistiveAccess
+
+```swift
+ AssistiveAccess { // 225736 225813 correct place
+            Text("Hello")
+        }
+```
+
+
+
+## Foundation models
+
+```swift
+import FoundationModels
+import Playgrounds
+
+#Playground {
+    let session = LanguageModelSession(instructions: "You are a ship expert")
+    let response = try await session.respond(to: "What is the length of Icon of the Seas" /*"Integrate 2x^(e^2) from infinity to 2"*/)
+    print("L")
+    print(response.content)
+    print("A")
+    print(response) // nothing
+    // This type is an implementation detail of the Playgrounds library. Do not use it directly.
+}
+
+```
