@@ -224,7 +224,8 @@ struct EdgeView: View {
         .scrollEdgeEffectStyle(.hard, for: .all) // 235151
         // I think I need background for it
     }
-}```
+}
+```
 
 
 ## Foundation models
