@@ -1,4 +1,4 @@
-# glassEffect
+# .glassEffect
 
 ```swift
    Button("Hello"){}
@@ -11,7 +11,8 @@
 ```
 
 
-## tabMax
+## .tabBarMinimizeBehavior
+## .tabViewBottomAccessory
 
 ```swift
 
@@ -54,8 +55,150 @@ struct TabMax: View {
                     print("150245a") // 150333 the accesory view swapping is so cool
                 }
             }
-    } // 145223 wow instantly minimizes by itself is speed is too fast
+    } /
+/ 145223 wow instantly minimizes by itself is speed is too fast
     
 }
 
 ```
+
+
+
+## Toolbar
+
+```swift
+
+
+
+struct Maxo: View {
+    var body: some View {
+        
+        NavigationStack {
+            
+            
+            Text("Hello")
+                .toolbar(id: "toolbar"){ // 205535 very nice expandable
+                    ToolbarItem(id: "tag"){
+                        Button("Tag"){
+                            
+                        }
+                    }
+                    
+                    ToolbarSpacer(.flexible) // 205603
+                    
+                    ToolbarItem(id: "next"){
+                        Button("Nice"){
+                            
+                        }
+                    }
+                    
+                    ToolbarItem(id: "nexta"){
+                        Button("Nicea"){
+                            
+                        }
+                    } //211133 211214 to much aninm?
+                    
+                    
+                    
+                }.toolbarVisibility(.visible, for: .automatic)
+        }
+    }
+}
+
+```
+
+## .backgroundExtensionEffect
+##  ToolbarSpacer
+```swift
+
+struct BackgroundExtend: View {
+    var body: some View {
+        NavigationSplitView {
+            List {
+                
+                
+                Text("Lake")
+            }
+            
+        } detail: {
+            
+            
+                // 221153 weird icon¨
+            
+            // good for 221323 for glasswing proj
+            // 221548 heavy jump effect when scrol
+            
+                
+            // 222221 Jumping navbar in maps feel like too much
+            
+            
+            // 222539 what??? refraction when I scroll the top of screen in iOS
+            
+            // 222826 and 31 Wow iPad settings
+                 Image("tahoe") // 214139 Nice!!!
+                .rotationEffect(.degrees(180))
+                     .backgroundExtensionEffect() // 214002
+                     
+                     .overlay {
+                         VStack {
+                             Text("Hello")
+                             Text("Info")
+                             Text("Author")
+                         }.background(.orange)
+                         
+                     }.toolbar {
+                         
+                         
+                         ToolbarItemGroup {
+                            
+                             Button {
+                                 print("A")
+                             }label: {
+                                 Image(systemName: "sun.min.fill")
+                             }
+                             
+                             Button {
+                                 print("B")
+                             }label: {
+                                 Image(systemName: "cloud.fill")
+                             }
+                         }
+                         
+                         
+                         ToolbarItem(id: "A", placement: .topBarLeading) {
+                             Button {
+                                 print("A")
+                             }label: {
+                                 Image(systemName: "sun.min.fill")
+                             }
+                         } // 221025 anim is too much
+                         
+                         ToolbarSpacer(.flexible)
+                         
+                             ToolbarItem(id: "A") {
+                                 
+                                 Button {
+                                     print("A")
+                                 }label: {
+                                     Image(systemName: "cloud.fill")
+                                 }
+                             }
+                             
+                             ToolbarItem(id: "A") {
+                             Button {
+                                 print("A")
+                             }label: {
+                                 Image(systemName: "sun.min.fill")
+                             }
+                         }
+                     }
+            
+         
+          
+        }
+       
+    }
+}
+```
+
+
