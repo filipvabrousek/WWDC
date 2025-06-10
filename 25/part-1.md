@@ -206,7 +206,25 @@ struct BackgroundExtend: View {
             Text("Hello")
         }
 ```
+## scrollEdgeEffectStyle
 
+```swift
+
+struct EdgeView: View {
+    var body: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(0..<60){ item in
+                    //Text("Hello")
+                    
+                    Circle().frame(width: 1700, height: 300)
+                }
+            }
+        }.edgesIgnoringSafeArea(.all)
+        .scrollEdgeEffectStyle(.hard, for: .all) // 235151
+        // I think I need background for it
+    }
+}```
 
 
 ## Foundation models
