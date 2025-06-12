@@ -1,6 +1,6 @@
 ## visionOS
 
-## .depthAlignment()
+### .depthAlignment()
 ### .manipulable()
 ### .rotation3DLayout()
 
