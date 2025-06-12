@@ -244,7 +244,7 @@ struct Symbs: View {
        Image(systemName: "square.and.arrow.up")
             .font(.largeTitle)
             .foregroundStyle(.orange)
-            .symbolEffect(.drawOn, isActive: expand) // 193140 drawOn 193344 nice symbol drawing
+            .symbolEffect(.drawOn, isActive: expand) // 193140 drawOn 193344 nice symbol drawing 11/06/25
             .onTapGesture {
                 expand.toggle()
             }
