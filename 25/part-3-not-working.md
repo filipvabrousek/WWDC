@@ -110,4 +110,46 @@ struct mv: View {
 
 
 
+## visionOS
+
+```swift
+import SwiftUI
+import RealityKit
+import RealityKitContent
+
+struct ImmersiveView: View { // 125038 edge gets colser
+    @GestureState private var dragMountain: Float = 0
+    
+    var body: some View {
+        RealityView { content in
+
+            if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
+                ManipulationComponent.configureEntity(immersiveContentEntity) // 135255 configEntity
+                content.add(immersiveContentEntity)
+                
+                let drag1 = GestureComponent(DragGesture().updating($dragMountain, body: { value, offset, _ in
+                    offset = Float(value.translation.width)
+                    print("Offset is \(offset)")
+                }))
+                
+                immersiveContentEntity.components.set(drag1) // 152305
+
+                // Put skybox here.  See example in World project available at
+                // https://developer.apple.com/
+            }
+            
+            let popentity = Entity() // 134442
+            // Before the hemritage elbow 133040 12/06/25
+            let popover = PresentationComponent(isPresented: .constant(true),
+                                                configuration: .popover(arrowEdge: .bottom),
+               
+                                                content: Text("Wow").font(.title).bold().foregroundStyle(.green))
+            
+            popentity.components[PresentationComponent.self] = popover // 134950
+            content.add(popentity)
+}
+}
+}
+```
+
 
