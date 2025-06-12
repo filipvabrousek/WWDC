@@ -105,4 +105,9 @@ struct mv: View {
 
 ```
 
+## for macOS
+* https://developer.apple.com/documentation/SwiftUI/View/windowResizeAnchor(_:)
+
+
+
 
