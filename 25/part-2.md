@@ -1,4 +1,4 @@
-### Nice glass
+### GlassEffect, regular, tint
 
 ```swift
 
@@ -17,7 +17,10 @@ struct Flight: View {
 }
 ```
 
-### Nice effect
+### GlassEffectContainer
+### .glassEffectTransition(.identity)
+### .glassEffectUnion
+
 ```swift
 
 struct Flighta: View {
