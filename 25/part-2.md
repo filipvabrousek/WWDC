@@ -115,6 +115,8 @@ struct BackExtend: View {
 
 
 ### TextEditor
+### writingDirection
+### textInputFormattingControlVisibility
 ```swift
 
 struct RichEditora: View {
@@ -123,10 +125,11 @@ struct RichEditora: View {
     // 181117 saw
     var body: some View {
         TextEditor(text: $rich, selection: $sel)
+            .writingDirection(strategy: .contentBased) // 113459 content based or layout based
+            .textInputFormattingControlVisibility(.visible, for: .all) // 113630
             .frame(height: 900)
     }
 }
-
     
 ```
 
