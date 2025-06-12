@@ -134,42 +134,6 @@ struct RichEditora: View {
 
 
 
-### AIView not working
-
-```swift
-
-struct AIView: View { // at Wi-Fi
-    
-    @State var answer = ""
-    var body: some View {
-        VStack {
-            Button("Hello"){
-                
-            Task {
-                let session = LanguageModelSession(/*instructions: "You are a ship expert"*/)
-                let response = session.streamResponse(to: /*"What is the length of Icon of the Seas"*/ "What is SwiftUI?")//.respond(to: "What is the length of Icon of the Seas" /*"Integrate 2x^(e^2) from infinity to 2"*/)
-               
-                
-                for try await chunk in response {
-                    self.answer = chunk
-                    print("Chunk")
-                    print(self.answer)
-                }
-              //  print(response.content)
-               
-              }
-                // Passing along InferenceError::inferenceFailed::Error Domain=com.apple.UnifiedAssetFramework Code=5000 "There are no underlying assets (neither atomic instance nor asset roots) for consistency token for asset set com.apple.modelcatalog" UserInfo={NSLocalizedFailureReason=There are no underlying assets (neither atomic instance nor asset roots) for consistency token for asset set com.apple.modelcatalog} in response to ExecuteRequest
-                
-                //
-                
-            }
-        }
-    }
-}
-
-// 17589š ozn site
-// 175835
-```
 
 
 ### TabBar role .search
