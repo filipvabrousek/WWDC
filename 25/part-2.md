@@ -299,3 +299,23 @@ struct TransitionAnim: View {
 
 
 
+## .listRowInsets()
+
+```swift
+
+struct LRInsets: View {
+    @State var text = ""
+    
+    var body: some View {
+        List {
+            // 223118 on item 12/06
+            Text("Scotland").listRowInsets(EdgeInsets.init(top: 0, leading: 130, bottom: 0, trailing: 30)) // 222731 2827
+            Text("Hello")
+            Text("Nice")
+        }
+        
+    }
+}
+```
+
+
