@@ -35,4 +35,11 @@
 
 
 
-### 
+### scaledToFill3D
+### scaledToFit3D
+
+```swift
+ Model3D(named: "Scene", bundle: realityKitContentBundle){ model in
+                    model.model?.resizable().scaledToFill3D() // 222131
+                }
+```
