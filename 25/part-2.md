@@ -117,14 +117,17 @@ struct BackExtend: View {
 ### TextEditor
 ```swift
 
-struct RichEditor: View {
+struct RichEditora: View {
     @State var rich = AttributedString()
+    @State var sel = AttributedTextSelection() // 110709
     // 181117 saw
     var body: some View {
-        TextEditor(text: $rich)
+        TextEditor(text: $rich, selection: $sel)
             .frame(height: 900)
     }
 }
+
+    
 ```
 
 
