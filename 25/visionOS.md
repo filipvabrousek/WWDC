@@ -79,7 +79,7 @@ struct ContentView: View {
 
 }
 }
-} // 93423 highs on GitHUb
+} // 93423 highs on GitHub
 ```
 
 
