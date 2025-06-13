@@ -65,7 +65,7 @@ struct ContentView: View {
                     model.model?.resizable().scaledToFill3D() // 222131
                 }
                     .padding(.bottom, 50)
-                     .offset(x: translateX, y: translateY)
+                    .offset(x: translateX, y: translateY)
                     .manipulationGesture(updating: gs) { change in
                         print("Changed") // need to remove manioulatalble
                         print(change.value?.transform) // Nice: 922:49 13/06/25
