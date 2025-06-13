@@ -9,11 +9,11 @@
 * toolbar in mail expands beautifully 101132
 * Preview => TobBar has only split buttons => not cohesive bar
 * Tabbar refraction is prolly too much
-* 104308 too much jumping when clicking edit in the clock app
-* 105231 - can make head spin pulling down Notification Center from App library
-* 105534 cool anim top right from "Select in Photos, open a photo and tap to left back button
+* too much jumping when clicking edit in the clock app (104308 )
+* can make head spin pulling down Notification Center from App library (105231)
+* cool anim top right from "Select in Photos, open a photo and tap to left back button (105534)
 
-* 104426 hlen vytekl okem 
+* hlen vytekl okem (104426)
 
 
 
