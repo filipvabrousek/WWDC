@@ -83,7 +83,7 @@ struct ContentView: View {
 ```
 
 
-## PresentationComponet
+## PresentationComponent
 
 ```swift
 struct MyContentView: View {
