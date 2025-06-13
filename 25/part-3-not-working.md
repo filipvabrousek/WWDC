@@ -109,6 +109,24 @@ struct mv: View {
 * https://developer.apple.com/documentation/SwiftUI/View/windowResizeAnchor(_:)
 
 
+```swift
+
+RealityView { content in
+
+
+let popentity = Entity()
+ let drag1 = GestureComponent(SpatialTapGesture().onChanged { a in
+                print("TAPPO")
+            })
+            
+            
+            popentity.components[GestureComponent.self] = drag1
+          //  popentity.components.set(drag1) // 152305
+            
+            content.add(popentity)
+
+}
+```
 
 
 
