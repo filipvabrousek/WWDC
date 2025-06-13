@@ -403,4 +403,45 @@ struct ExpandView: View {
 
 ```
 
+## SharedGlassAnim
+
+```swift
+
+struct SharedView: View {
+    @State var showSheet = false
+    
+    var body: some View {
+        NavigationStack {
+            
+            ScrollView {
+                
+                ZStack {
+                    Text("Hello")
+                        .toolbar{
+                            ToolbarItem(placement: .topBarTrailing) { // bottomBar looks worse
+                                Button {
+                                    showSheet.toggle()
+                                } label: {
+                                    Image(systemName: "sun.min.fill")
+                                }
+                            }
+                            
+                            ToolbarItem(placement: .topBarTrailing) {
+                                Button {
+                                    showSheet.toggle()
+                                } label: {
+                                    Image(systemName: "sun.min.fill")
+                                }
+                            }.sharedBackgroundVisibility(.hidden) // 155513 160756 removes from group with background
+                            // hide visibility of shared background
+                        }
+                    
+                    Image("tahoe")
+                }
+                
+            }
+        }
+    }
+}
+```
 
