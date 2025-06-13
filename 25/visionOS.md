@@ -103,4 +103,62 @@ struct MyContentView: View {
 }
 ```
 
+## spatialOverlay
+## spatialContainer
+
+```swift
+
+struct SpatView: View {
+    var body: some View {
+        SpatialContainer(alignment: .trailingFront) { // I think it is not aligning 13/06/25
+            Model3D(named: "Scene", bundle: realityKitContentBundle)/*{ model in
+                model.model?
+                    .resizable()
+                    .frame(width: 0.2, height: 0.2)
+                    
+                    //.offset(z: 0.3)
+            }*/ // 02463 8 debug border3D
+            
+            Model3D(named: "Cylinder", bundle: realityKitContentBundle)
+                .spatialOverlay { // 2111042
+                    Text("Good luck Habu")
+                        .font(.title)
+                        .foregroundStyle(.green)
+                        .bold()
+                }
+            /*{ model in
+                model.model?
+                    .resizable()
+                    .frame(width: 0.1, height: 0.1)
+                   // .offset(z: 0.3)
+            }*/
+            
+            // 202211
+            
+        }
+    }
+}
+
+
+struct Overlay: View {
+    var body: some View {
+        Text("Hello")
+            .spatialOverlay { // 2111042
+            Text("Good luck Habu")
+                .font(.title)
+                .foregroundStyle(.green)
+                .bold()
+        }
+        
+    }
+}
+```
+
+
+To-Do:
+* RemoteImmersiveSpace
+* Rotation3DLayout
+* Surface snapping
+* aspectRatio3D
+
 
