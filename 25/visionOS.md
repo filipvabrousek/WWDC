@@ -43,3 +43,43 @@
                     model.model?.resizable().scaledToFill3D() // 222131
                 }
 ```
+
+
+### manipulationGesture
+
+```swift
+
+
+struct ContentView: View {
+    @GestureState var gs: Binding<Manipulable.GestureState> = .constant(.init(transform: .identity)) // 224235
+    @State var translateX = 0.0
+    @State var translateY = 0.0
+    @State var translateZ = 0.0
+    
+    var body: some View {
+        VStack {
+
+
+ VStackLayout().depthAlignment(.front){ // 191054 Pizz 12/06
+                Model3D(named: "Scene", bundle: realityKitContentBundle){ model in
+                    model.model?.resizable().scaledToFill3D() // 222131
+                }
+                    .padding(.bottom, 50)
+ .offset(x: translateX, y: translateY)
+                    .manipulationGesture(updating: gs) { change in
+                        print("Changed") // need to remove manioulatalble
+                        print(change.value?.transform) // Nice: 922:49 13/06/25
+                        
+                        translateX = (change.value?.transform?.translation.x) ?? 0
+                        translateY = (change.value?.transform?.translation.y) ?? 0
+                        translateZ = (change.value?.transform?.translation.z) ?? 0
+                    } // 22839
+
+}
+
+}
+}
+}
+```
+
+
