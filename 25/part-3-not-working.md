@@ -109,6 +109,7 @@ struct mv: View {
 * https://developer.apple.com/documentation/SwiftUI/View/windowResizeAnchor(_:)
 
 
+## GestureComponent
 ```swift
 
 RealityView { content in
