@@ -9,6 +9,9 @@
 * toolbar in mail expands beautifully 101132
 * Preview => TobBar has only split buttons => not cohesive bar
 * Tabbar refraction is prolly too much
+* 104308 too much jumping when clicking edit in the clock app
+
+* 104426 hlen vytekl okem 
 
 
 
