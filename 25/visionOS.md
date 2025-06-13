@@ -65,7 +65,7 @@ struct ContentView: View {
                     model.model?.resizable().scaledToFill3D() // 222131
                 }
                     .padding(.bottom, 50)
- .offset(x: translateX, y: translateY)
+                     .offset(x: translateX, y: translateY)
                     .manipulationGesture(updating: gs) { change in
                         print("Changed") // need to remove manioulatalble
                         print(change.value?.transform) // Nice: 922:49 13/06/25
@@ -80,6 +80,27 @@ struct ContentView: View {
 }
 }
 } // 93423 highs on GitHub
+```
+
+
+## PresentationComponet
+
+```swift
+struct MyContentView: View {
+    var body: some View {
+        RealityView { content in
+                let popentity = Entity() // 134442 12/06
+                let popover = PresentationComponent(isPresented: .constant(true),
+                                                    configuration: .popover(arrowEdge: .bottom),
+                                                    content: Text("Wow").font(.title).bold().foregroundStyle(.green))
+                
+                popentity.components[PresentationComponent.self] = popover // 134950
+                content.add(popentity)
+                // 163638 Wow!!! 13/06/25
+                // I don't have to be in Immersive View to make RealityView
+        }
+    }
+}
 ```
 
 
