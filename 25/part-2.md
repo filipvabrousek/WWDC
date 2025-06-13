@@ -318,4 +318,89 @@ struct LRInsets: View {
 }
 ```
 
+## trans
+
+```swift
+
+struct TransView: View {
+    @State var showSheet = false
+    @Namespace private var namespace
+    
+    var body: some View {
+        NavigationStack {
+            
+            
+            Text("Hello")
+                .toolbar{
+                    ToolbarItem(placement: .topBarTrailing) { // bottomBar looks worse
+                        Button {
+                            showSheet.toggle()
+                        } label: {
+                            Image(systemName: "sun.min.fill")
+                        }
+                    }.matchedTransitionSource(id: "transition-id", in: namespace)
+                }
+                .sheet(isPresented: $showSheet) {
+                    Text("Hello") // 113107 weird
+                        .navigationTransition(.zoom(sourceID: "transition-ID", in: namespace))
+                        .frame(width: 300, height: 300)
+                        .background(Color.orange)
+                    // .frame(width: 200, height: 200)
+                    
+                    // 113529 vyuz AI nesm divit
+                }
+            
+        }
+    }
+} //13/06/25
+```
+
+
+
+### Menu
+
+
+```swift
+// 113612 this is beautiful
+
+struct ExpandView: View {
+    @State var expand = false
+    
+    var body: some View {
+        NavigationStack {
+            
+           Text("Helloa").toolbar {
+                ToolbarItemGroup {
+                    Button {
+                        expand.toggle()
+                    } label: {
+                        Text("Hello")
+                    }
+                    
+                    Menu("Collections", systemImage: "book.closed"){
+                        Text("This si amazing").font(.title)
+                            .bold()
+                        
+                        Button("Hello"){ // 115007
+                            
+                        }
+                        
+                        Button("Hello"){ // 115007
+                            
+                        }
+                        
+                        Button("Hello"){ // 115007
+                            
+                        }
+                    }
+                }
+            }
+            
+            
+        }
+    }
+}
+
+```
+
 
