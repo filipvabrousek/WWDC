@@ -155,10 +155,28 @@ struct Overlay: View {
 ```
 
 
+### AspectRatio3D
+
+```swift
+
+struct Pol: View {
+    var body: some View {
+        Model3D(named: "Scene", bundle: realityKitContentBundle){ res in
+            res.model?
+                .resizable()
+                .aspectRatio3D(Size3D(width: 1, height: 6, depth: 1),
+                                                  contentMode: .fill) // 14/06/25 after Sctoland race*/
+        }.frame(width: 200, height: 200)
+         .frame(depth: 200)
+         .border(Color(white: 0.75)) //223711
+         // works 223811
+    }
+}
+```
+
 To-Do:
 * RemoteImmersiveSpace
 * Rotation3DLayout
 * Surface snapping
-* aspectRatio3D
 
 
