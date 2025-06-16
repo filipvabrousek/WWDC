@@ -316,3 +316,267 @@ _UIHostingView<Optional<ModifiedContent<Picker<Text, String, TupleView<(Modified
 OS: iOS26
 ```
 
+
+```swift
+ Picker(selection: $val, label: Text("Pick")) { 
+                Text("Swim").tag("Swim")
+                Text("Bike").tag("Bike")
+                Text("Run").tag("Run") 
+            } 
+            .pickerStyle(.wheel)
+              .bone(into: "wpolo.txt")
+```
+
+```swift
+ 
+ 
+_UIHostingView<Optional<ModifiedContent<Picker<Text, String, TupleView<(ModifiedContent<Text, _TagTraitWritingModifier<String>>, ModifiedContent<Text, _TagTraitWritingModifier<String>>, ModifiedContent<Text, _TagTraitWritingModifier<String>>)>>, PickerStyleWriter<WheelPickerStyle>>>>:
+ superclass: UIView 
+ layer: <CALayer:0x600000c24b40 
+ sublayers: <CALayer:0x600000c0b960
+ 
+ 
+->UIKitPlatformViewHost<PlatformViewRepresentableAdaptor<UIKitWheelPicker<DataSource>>>:
+ superclass: UICorePlatformViewHost<PlatformViewRepresentableAdaptor<UIKitWheelPicker<DataSource>>> 
+ layer: <CALayer:0x600000c0b960 
+ sublayers: <CALayer:0x600000c0fe70
+ 
+ 
+-->UIKitPickerView:
+ superclass: UIPickerView 
+ layer: <CALayer:0x600000c0fe70 
+ sublayers: <CALayer:0x600000c0fde0 / <CALayer:0x600000c269a0
+ 
+ 
+--->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c0fde0 
+ sublayers: <CALayer:0x600000c32790 / <CAGradientLayer:0x600000c0fed0
+ 
+ 
+---->UIPickerColumnView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c32790 
+ sublayers: <CALayer:0x600000c31bf0 / <CALayer:0x600000c38390 / <CALayer:0x600000c336f0
+ 
+ 
+----->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c31bf0 
+ sublayers: <CALayer:0x600000c32280
+ 
+ 
+------>UIPickerTableView:
+ superclass: UITableView 
+ layer: <CALayer:0x600000c32280 
+ sublayers: <CALayer:0x600000c35d70 / <CALayer:0x600000c39380
+ 
+ 
+------->UIPickerTableViewWrapperCell:
+ superclass: UIPickerTableViewCell 
+ layer: <CALayer:0x600000c35d70 
+ sublayers: <CALayer:0x600000c35f50 / <CALayer:0x600000c361f0
+ 
+ 
+-------->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c35f50 
+ sublayers: <CALayer:0x600000c36040
+ 
+ 
+--------->_UIHostingView<RootCellView<Subview>>:
+ superclass: UIView 
+ layer: <CALayer:0x600000c36040 
+ sublayers: <_TtC7SwiftUIP33_863CCF9D49B535DAEB1C7D61BEE53B5914CGDrawingLayer:0x600002c38780 
+ contents:<CABackingStore 0x103b19ee0 (buffer [150 76] A8)> 
+ 
+ 
+-------->UITableViewCellContentView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c361f0
+ 
+ 
+------->_UIScrollViewScrollIndicator:
+ superclass: UIView 
+ layer: <CALayer:0x600000c39380 
+ sublayers: <CALayer:0x600000c393b0
+ 
+ 
+-------->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c393b0
+ 
+ 
+----->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c38390 
+ sublayers: <CALayer:0x600000c383c0
+ 
+ 
+------>UIPickerTableView:
+ superclass: UITableView 
+ layer: <CALayer:0x600000c383c0 
+ sublayers: <CALayer:0x600000c35860 / <CALayer:0x600000c3cfc0 / <CALayer:0x600000c3cf00 / <CALayer:0x600000c39650
+ 
+ 
+------->UIPickerTableViewWrapperCell:
+ superclass: UIPickerTableViewCell 
+ layer: <CALayer:0x600000c35860 
+ sublayers: <CALayer:0x600000c35950 / <CALayer:0x600000c35bc0
+ 
+ 
+-------->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c35950 
+ sublayers: <CALayer:0x600000c35a40
+ 
+ 
+--------->_UIHostingView<RootCellView<Subview>>:
+ superclass: UIView 
+ layer: <CALayer:0x600000c35a40 
+ sublayers: <_TtC7SwiftUIP33_863CCF9D49B535DAEB1C7D61BEE53B5914CGDrawingLayer:0x600002c38080 
+ contents:<CABackingStore 0x103b18c40 (buffer [108 76] A8)> 
+ 
+ 
+-------->UITableViewCellContentView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c35bc0
+ 
+ 
+------->UIPickerTableViewWrapperCell:
+ superclass: UIPickerTableViewCell 
+ layer: <CALayer:0x600000c3cfc0 
+ sublayers: <CALayer:0x600000c3d500 / <CALayer:0x600000c3d860
+ 
+ 
+-------->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c3d500 
+ sublayers: <CALayer:0x600000c3d710
+ 
+ 
+--------->_UIHostingView<RootCellView<Subview>>:
+ superclass: UIView 
+ layer: <CALayer:0x600000c3d710 
+ sublayers: <_TtC7SwiftUIP33_863CCF9D49B535DAEB1C7D61BEE53B5914CGDrawingLayer:0x600002c2b380 
+ contents:<CABackingStore 0x103b18890 (buffer [117 76] A8)> 
+ 
+ 
+-------->UITableViewCellContentView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c3d860
+ 
+ 
+------->UIPickerTableViewWrapperCell:
+ superclass: UIPickerTableViewCell 
+ layer: <CALayer:0x600000c3cf00 
+ sublayers: <CALayer:0x600000c3d080 / <CALayer:0x600000c3d320
+ 
+ 
+-------->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c3d080 
+ sublayers: <CALayer:0x600000c3d170
+ 
+ 
+--------->_UIHostingView<RootCellView<Subview>>:
+ superclass: UIView 
+ layer: <CALayer:0x600000c3d170 
+ sublayers: <_TtC7SwiftUIP33_863CCF9D49B535DAEB1C7D61BEE53B5914CGDrawingLayer:0x600002c36f80 
+ contents:<CABackingStore 0x103b186a0 (buffer [150 76] A8)> 
+ 
+ 
+-------->UITableViewCellContentView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c3d320
+ 
+ 
+------->_UIScrollViewScrollIndicator:
+ superclass: UIView 
+ layer: <CALayer:0x600000c39650 
+ sublayers: <CALayer:0x600000c39680
+ 
+ 
+-------->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c39680
+ 
+ 
+----->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c336f0 
+ sublayers: <CALayer:0x600000c33720
+ 
+ 
+------>UIPickerTableView:
+ superclass: UITableView 
+ layer: <CALayer:0x600000c33720 
+ sublayers: <CALayer:0x600000c39a70 / <CALayer:0x600000c39530 / <CALayer:0x600000c398c0
+ 
+ 
+------->UIPickerTableViewWrapperCell:
+ superclass: UIPickerTableViewCell 
+ layer: <CALayer:0x600000c39a70 
+ sublayers: <CALayer:0x600000c39f80 / <CALayer:0x600000c3a2e0
+ 
+ 
+-------->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c39f80 
+ sublayers: <CALayer:0x600000c3a190
+ 
+ 
+--------->_UIHostingView<RootCellView<Subview>>:
+ superclass: UIView 
+ layer: <CALayer:0x600000c3a190 
+ sublayers: <_TtC7SwiftUIP33_863CCF9D49B535DAEB1C7D61BEE53B5914CGDrawingLayer:0x600002c35100 
+ contents:<CABackingStore 0x103d35f90 (buffer [117 76] A8)> 
+ 
+ 
+-------->UITableViewCellContentView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c3a2e0
+ 
+ 
+------->UIPickerTableViewWrapperCell:
+ superclass: UIPickerTableViewCell 
+ layer: <CALayer:0x600000c39530 
+ sublayers: <CALayer:0x600000c39b30 / <CALayer:0x600000c39dd0
+ 
+ 
+-------->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c39b30 
+ sublayers: <CALayer:0x600000c39c20
+ 
+ 
+--------->_UIHostingView<RootCellView<Subview>>:
+ superclass: UIView 
+ layer: <CALayer:0x600000c39c20 
+ sublayers: <_TtC7SwiftUIP33_863CCF9D49B535DAEB1C7D61BEE53B5914CGDrawingLayer:0x600002c34b00 
+ contents:<CABackingStore 0x103d35da0 (buffer [150 76] A8)> 
+ 
+ 
+-------->UITableViewCellContentView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c39dd0
+ 
+ 
+------->_UIScrollViewScrollIndicator:
+ superclass: UIView 
+ layer: <CALayer:0x600000c398c0 
+ sublayers: <CALayer:0x600000c398f0
+ 
+ 
+-------->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c398f0
+ 
+ 
+--->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c269a0
+-------------------------
+OS: iOS26
+```
+
