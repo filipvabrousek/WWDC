@@ -317,6 +317,8 @@ OS: iOS26
 ```
 
 
+## wheel
+
 ```swift
  Picker(selection: $val, label: Text("Pick")) { 
                 Text("Swim").tag("Swim")
