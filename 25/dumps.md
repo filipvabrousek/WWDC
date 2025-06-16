@@ -582,3 +582,174 @@ _UIHostingView<Optional<ModifiedContent<Picker<Text, String, TupleView<(Modified
 OS: iOS26
 ```
 
+
+
+
+## TabBar
+
+```swift
+
+struct Taba: View {
+    var body: some View {
+        TabView { // 233110 empty
+            
+            Tab("Hello", systemImage: "sun.min.fill") {
+                Text("Home")
+                
+            }
+            
+            Tab("Work", systemImage: "sun.min.fill") {
+                Text("Work")
+            }
+            
+            Tab("Contact", systemImage: "sun.min.fill") {
+                Text("Contact")
+            }
+        }.bone(into: "tab.txt")
+    }
+}
+```
+
+```swift
+ 
+ 
+_UIHostingView<Optional<TabView<Never, Content<_TupleTabContent<Never, (ModifiedContent<TabIdentifiedView, _TraitWritingModifier<TagValueTraitKey<Never>>>, ModifiedContent<TabIdentifiedView, _TraitWritingModifier<TagValueTraitKey<Never>>>, ModifiedContent<TabIdentifiedView, _TraitWritingModifier<TagValueTraitKey<Never>>>)>>>>>:
+ superclass: UIView 
+ layer: <CALayer:0x600000c307e0 
+ sublayers: <CALayer:0x600000c34f00
+ 
+ 
+->UIKitPlatformViewHost<PlatformViewControllerRepresentableAdaptor<UIKitAdaptableTabView>>:
+ superclass: UICorePlatformViewHost<PlatformViewControllerRepresentableAdaptor<UIKitAdaptableTabView>> 
+ layer: <CALayer:0x600000c34f00 
+ sublayers: <CALayer:0x600000c34090
+ 
+ 
+-->UILayoutContainerView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c34090 
+ sublayers: <CALayer:0x600000c360a0 / <_UIMultiLayer:0x600000c32b80
+ 
+ 
+--->UITransitionView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c360a0 
+ sublayers: <CALayer:0x600000c3c420
+ 
+ 
+---->UIViewControllerWrapperView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c3c420 
+ sublayers: <CALayer:0x600000c35c20
+ 
+ 
+----->HostingView:
+ superclass: _UIHostingView<RootView> 
+ layer: <CALayer:0x600000c35c20 
+ sublayers: <_TtC7SwiftUIP33_863CCF9D49B535DAEB1C7D61BEE53B5914CGDrawingLayer:0x600002c2f480 
+ contents:<CABackingStore 0x103d54940 (buffer [137 61] A8)> 
+ 
+ 
+--->_UITabBarContainerWrapperView:
+ superclass: _UITouchPassthroughView 
+ layer: <CALayer:0x600000c32a60 
+ sublayers: <CALayer:0x600000c2efd0
+ 
+ 
+---->_UITabBarContainerView:
+ superclass: _UITouchPassthroughView 
+ layer: <CALayer:0x600000c2efd0 
+ sublayers: <CALayer:0x600000c32d00
+ 
+ 
+----->UITabBar:
+ superclass: UIView 
+ layer: <CALayer:0x600000c32d00 
+ sublayers: <CALayer:0x600000c32d60
+ 
+ 
+------>_UITabBarPlatterView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c32d60 
+ sublayers: <CALayer:0x600000c2ea60 / <CALayer:0x600000c32d30
+ 
+ 
+------->_UILiquidLensView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c2ea60 
+ sublayers: <CALayer:0x600000c33390
+ 
+ 
+-------->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c33390 
+ sublayers: <_UIMultiLayer:0x600000c44330
+ 
+ 
+--------->_UITabSelectionView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c07f90
+ 
+ 
+------->ContentView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c32d30 
+ sublayers: <CALayer:0x600000c3b5a0 / <CALayer:0x600000c2fd80 / <CALayer:0x600000c3c030
+ 
+ 
+-------->_UITabButton:
+ superclass: UIControl 
+ layer: <CALayer:0x600000c3b5a0 
+ sublayers: <CALayer:0x600000c352f0 / <_UILabelLayer:0x600002c20b80 
+ contents:<CGImage 0x1054173f0> (DP)
+	<<CGColorSpace 0x600002620960> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; sRGB IEC61966-2.1)>
+		headroom = 1.000000  
+		width = 68, height = 68, bpc = 8, bpp = 32, row bytes = 288, 
+		kCGImageAlphaPremultipliedLast | kCGImageByteOrder32Little  | kCGImagePixelFormatPacked 
+		is mask? No, has masking color? No, has soft mask? No, has matte? No, should interpolate? Yes / <CABackingStore 0x103d508f0 (buffer [77 36] A8)> / 
+ 
+ 
+--------->UIImageView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c352f0
+ 
+ 
+--------->UILabel:
+ superclass: UIView 
+ layer: <_UILabelLayer:0x600002c20b80
+ 
+ 
+-------->_UITabButton:
+ superclass: UIControl 
+ layer: <CALayer:0x600000c2fd80 
+ sublayers: <_UIMultiLayer:0x600000c41410 / <_UIMultiLayer:0x600000c3c720
+ 
+ 
+--------->UIImageView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c2fcc0
+ 
+ 
+--------->UILabel:
+ superclass: UIView 
+ layer: <_UILabelLayer:0x600002c0b280
+ 
+ 
+-------->_UITabButton:
+ superclass: UIControl 
+ layer: <CALayer:0x600000c3c030 
+ sublayers: <_UIMultiLayer:0x600000c417d0 / <_UIMultiLayer:0x600000c3c930
+ 
+ 
+--------->UIImageView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c24690
+ 
+ 
+--------->UILabel:
+ superclass: UIView 
+ layer: <_UILabelLayer:0x600002c0b480
+-------------------------
+OS: iOS26
+```
+
