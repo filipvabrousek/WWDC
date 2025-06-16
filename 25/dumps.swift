@@ -4,6 +4,8 @@
 Toggle(isOn: $isOn) {
             Text("Hello")
         }.bone(into: "robo.txt") // 181948 LiquiLensView
+
+ // 165947 SwiftUI.GlassEffectItem
 ```
 
 ```swift
@@ -86,6 +88,89 @@ _UIHostingView<Optional<Toggle<Text>>>:
 ------>UIView:
  superclass: UIResponder 
  layer: <CALayer:0x600000c33990
+-------------------------
+OS: iOS26
+```
+
+
+
+
+
+
+## Slider
+
+```swift
+Slider(value: $val) {
+        Text("L")
+}.bone(into: "moro.txt")
+```
+
+
+
+
+```swift
+ 
+ 
+_UIHostingView<Optional<Slider<Text, EmptyView>>>:
+ superclass: UIView 
+ layer: <CALayer:0x600000c348a0 
+ sublayers: <CALayer:0x600000c36eb0
+ 
+ 
+->UIKitPlatformViewHost<PlatformViewRepresentableAdaptor<SystemSlider>>:
+ superclass: UICorePlatformViewHost<PlatformViewRepresentableAdaptor<SystemSlider>> 
+ layer: <CALayer:0x600000c36eb0 
+ sublayers: <CALayer:0x600000c29bf0
+ 
+ 
+-->UISlider:
+ superclass: UIControl 
+ layer: <CALayer:0x600000c29bf0 
+ sublayers: <CALayer:0x600000c368e0
+ 
+ 
+--->_UISliderGlassVisualElement:
+ superclass: _UISliderFluidVisualElement 
+ layer: <CALayer:0x600000c368e0 
+ sublayers: <CALayer:0x600000c31b30 / <CALayer:0x600000c36850 / <CALayer:0x600000c36580
+ 
+ 
+---->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c31b30
+ 
+ 
+---->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c36850 
+ sublayers: <CALayer:0x600000c368b0 / <CALayer:0x600000c36880
+ 
+ 
+----->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c368b0
+ 
+ 
+----->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c36880
+ 
+ 
+---->_UILiquidLensView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c36580 
+ sublayers: <CALayer:0x600000c358f0
+ 
+ 
+----->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c358f0 
+ sublayers: <CALayer:0x600000c364c0
+ 
+ 
+------>UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c364c0
 -------------------------
 OS: iOS26
 ```
