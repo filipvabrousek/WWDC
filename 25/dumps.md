@@ -187,9 +187,7 @@ OS: iOS26
             .bone(into: "polo.txt")
 ```
 
-```
- 
- 
+```swift
 _UIHostingView<Optional<ModifiedContent<Picker<Text, String, TupleView<(ModifiedContent<Text, _TagTraitWritingModifier<String>>, ModifiedContent<Text, _TagTraitWritingModifier<String>>, ModifiedContent<Text, _TagTraitWritingModifier<String>>)>>, _ForegroundStyleModifier<Color>>>>:
  superclass: UIView 
  layer: <CALayer:0x600000c200c0 
