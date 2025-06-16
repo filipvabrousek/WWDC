@@ -96,15 +96,15 @@ OS: iOS26
 
 
 
-
 ## Slider
 
+* ```UILiquidLensView```
+  
 ```swift
 Slider(value: $val) {
         Text("L")
 }.bone(into: "moro.txt")
 ```
-
 
 
 
