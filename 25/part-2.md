@@ -411,3 +411,29 @@ struct SharedView: View {
 }
 ```
 
+
+## SafeBar
+```swift
+
+struct SafeBar: View { //223140
+    @State var text = ""
+    
+    var body: some View {
+        VStack {
+            
+            List {
+                ForEach(0..<100){ item in
+                    Text("Hello \(item)")
+                }
+            }.safeAreaBar(edge: .bottom) { // overlazs content
+                Text("Safe ") // 223936 15/06/25
+            }
+            
+            // Creates gap 12348
+           // Text("Safe ") // 223936 15/06/25
+        }
+    }
+}
+
+```
+
