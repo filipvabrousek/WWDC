@@ -174,3 +174,81 @@ _UIHostingView<Optional<Slider<Text, EmptyView>>>:
 -------------------------
 OS: iOS26
 ```
+
+
+## Picker
+224636 UIReparentingView and UIPortalView
+```swift
+  Picker(selection: $val, label: Text("Pick")) { // 221532 effect too much?
+                Text("Swim").tag("Swim")
+                Text("Bike").tag("Bike")
+                Text("Run").tag("Run") // sel was 0
+            }.foregroundStyle(.green) // 222909 The high weird
+            .bone(into: "polo.txt")
+```
+
+```
+ 
+ 
+_UIHostingView<Optional<ModifiedContent<Picker<Text, String, TupleView<(ModifiedContent<Text, _TagTraitWritingModifier<String>>, ModifiedContent<Text, _TagTraitWritingModifier<String>>, ModifiedContent<Text, _TagTraitWritingModifier<String>>)>>, _ForegroundStyleModifier<Color>>>>:
+ superclass: UIView 
+ layer: <CALayer:0x600000c200c0 
+ sublayers: <CALayer:0x600000c2d020
+ 
+ 
+->UIKitPlatformViewHost<PlatformViewRepresentableAdaptor<UIKitButtonAdaptor<PlatformItemContent>>>:
+ superclass: UICorePlatformViewHost<PlatformViewRepresentableAdaptor<UIKitButtonAdaptor<PlatformItemContent>>> 
+ layer: <CALayer:0x600000c2d020 
+ sublayers: <CALayer:0x600000c24ed0
+ 
+ 
+-->UIKitIconPreferringButton:
+ superclass: UIKitButtonBase 
+ layer: <CALayer:0x600000c24ed0 
+ sublayers: <CALayer:0x600000c277b0 / <CALayer:0x600000c3a5b0
+ 
+ 
+--->_UISystemBackgroundView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c277b0 
+ sublayers: <CALayer:0x600000c27690
+ 
+ 
+---->UIView:
+ superclass: UIResponder 
+ layer: <CALayer:0x600000c27690 
+ sublayers: <CALayer:0x600000c30e10 / <_UILabelLayer:0x600002c29c80 
+ contents:<CGImage 0x105923d60> (DP)
+	<<CGColorSpace 0x600002618540> (kCGColorSpaceICCBased; kCGColorSpaceModelRGB; sRGB IEC61966-2.1)>
+		headroom = 1.000000  
+		width = 27, height = 38, bpc = 8, bpp = 32, row bytes = 128, 
+		kCGImageAlphaPremultipliedLast | kCGImageByteOrder32Little  | kCGImagePixelFormatPacked 
+		is mask? No, has masking color? No, has soft mask? No, has matte? No, should interpolate? Yes / <CABackingStore 0x105924550 (buffer [124 61] A8) (buffer [124 61] A8) (buffer [124 61] A8)> / 
+ 
+ 
+----->UIImageView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c30e10
+ 
+ 
+----->UILabel:
+ superclass: UIView 
+ layer: <_UILabelLayer:0x600002c29c80
+ 
+ 
+--->_UIReparentingView:
+ superclass: UIView 
+ layer: <CALayer:0x600000c3a5b0 
+ sublayers: <CAPortalLayer:0x60000173f340
+ 
+ 
+---->_UIPortalView:
+ superclass: UIView 
+ layer: <CAPortalLayer:0x60000173f340
+-------------------------
+OS: iOS26
+```
+
+
+
+
