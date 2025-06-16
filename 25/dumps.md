@@ -106,11 +106,7 @@ Slider(value: $val) {
 }.bone(into: "moro.txt")
 ```
 
-
-
 ```swift
- 
- 
 _UIHostingView<Optional<Slider<Text, EmptyView>>>:
  superclass: UIView 
  layer: <CALayer:0x600000c348a0 
