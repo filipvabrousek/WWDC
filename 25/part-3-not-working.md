@@ -132,3 +132,73 @@ let popentity = Entity()
 
 
 
+
+
+## DefaultToolbarItem
+```swift
+
+struct Defita: View {
+    @State var text = ""
+    var body: some View {
+        NavigationStack {
+            Text("Loop")
+                .toolbar {
+                    ToolbarItem(placement: .bottomBar) {
+                        Button("Hello"){}
+                    }
+                    
+                   // DefaultToolbarItem(kind: .title)
+                   // DefaultToolbarItem(kind: .search) show emptxy toba bar ?
+                    
+                    DefaultToolbarItem(kind: .title) // also show empty
+                    
+                    //{ // 225501 15/09
+                    //Button("L")
+                    // }
+                }
+        }
+    }
+
+
+}
+```
+
+## DragConfiguration
+```swift
+
+struct DragView: View {
+    @State var text = ""
+    var body: some View {
+        NavigationStack {
+            Text("Loop")
+            Circle().frame(width: 30, height: 30)
+        }
+    }
+    
+    func makeConf() -> DragConfiguration {
+        let operations = DragConfiguration(allowMove: true)
+        return operations
+    }
+}
+
+```
+
+## sectionIndexLabel
+```
+struct SectInd: View {
+    @State var text = ""
+    var body: some View {
+        List {
+            Section { // invisible?? 00439??? 16/06
+                Text("Hello")
+            }.sectionIndexLabel(Text("Loop")) // 223640
+                .listSectionIndexVisibility(.visible) // 223714
+        }
+    }
+
+}
+```
+
+
+
+
