@@ -504,3 +504,35 @@ struct mv: View {
     }
 }
 ```
+
+
+
+### sectionIndexLabel
+
+```swift
+import SwiftUI
+
+struct SeeLabels: View {
+  var body: some View {
+    List {
+      Section {
+        ForEach(0..<100) { _ in
+          Text("Hello")
+        }
+      }.sectionIndexLabel(Text("First part"))  // 223640
+
+      Section {
+        ForEach(0..<100) { _ in
+          Text("Mool")
+        }
+      }.sectionIndexLabel(Text("Second part"))  // 223640 16/06
+
+    }.listSectionIndexVisibility(.visible)  // 223714
+
+  }
+}
+
+// invisible?? 00439??? 16/06
+// 22611 more items are needed 19/06
+// 222556 have to be two section 19/06
+```
