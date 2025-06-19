@@ -94,6 +94,7 @@ struct Defita: View {
 ```
 
 ## DragConfiguration
+
 ```swift
 
 struct DragView: View {
@@ -110,6 +111,78 @@ struct DragView: View {
         return operations
     }
 }
+
+```
+
+## macOS drag
+
+```swift
+
+
+
+struct ColorItem:Identifiable {
+    let id: String = UUID().uuidString
+    var color: Color
+}
+
+let colorItems: [ColorItem] = [
+    ColorItem(color: .green),
+    ColorItem(color: .orange),
+    ColorItem(color: .yellow)
+]
+/*
+extension String: Identifiable {
+    public var id: String { self }
+}*/
+
+struct TransitionAnim: View {
+    @State private var selectedIDS: [String] = []
+    @State var colorItems = [ColorItem]()
+    
+    var body: some View {
+        VStack(spacing: 20){
+            LazyVGrid(columns: Array(repeating: GridItem(), count: 3), spacing: 15){
+                ForEach(colorItems){ item in
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(item.color.gradient)
+                        .frame(width: 80, height: 80)
+                        .overlay {
+                            if selectedIDS.contains(item.id){
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.largeTitle)
+                                    .foregroundStyle(.white)
+                            }
+                        }
+                        .onTapGesture { // 3x
+                            if selectedIDS.contains(item.id){
+                                    selectedIDS.removeAll { $0 == item.id}
+                                } else {
+                                    selectedIDS.append(item.id)
+                                }
+                        }//.draggable(containerItemID: item.id) https://developer.apple.com/documentation/swiftui/view/draggable(containeritemid:)
+                        } // have to compile on macOS
+            }
+            .dragContainer(for: String.self, selection: selectedIDS) { draggedItemID in
+                return draggedItemID
+            } // 220934 cannot run
+            
+            RoundedRectangle(cornerRadius: 20)
+                .fill(.ultraThinMaterial)
+                .overlay {
+                    Text("Drop Area") // 221037
+                }.dropDestination (for: String.self, isEnabled: true) { items, session in // 221321 drop
+                    print(items)
+                }.onDropSessionUpdated { session in // 221302
+                    print(session)
+                }
+                    
+                }
+                
+                
+                
+        }
+        }
+
 
 ```
 
