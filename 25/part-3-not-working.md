@@ -113,21 +113,6 @@ struct DragView: View {
 
 ```
 
-## sectionIndexLabel
-```swift
-struct SectInd: View {
-    @State var text = ""
-    var body: some View {
-        List {
-            Section { // invisible?? 00439??? 16/06
-                Text("Hello")
-            }.sectionIndexLabel(Text("Loop")) // 223640
-                .listSectionIndexVisibility(.visible) // 223714
-        }
-    }
-
-}
-```
 
 
 
