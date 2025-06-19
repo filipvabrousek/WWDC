@@ -474,3 +474,33 @@ struct AIView: View { // at Wi-Fi
 }
 
 ```
+
+### @Animatable macro
+```swift
+@Animatable // Sctoland !!!
+struct CircleShape: Shape{
+    var radius: CGFloat // 192752 has to have radius
+    
+    nonisolated func path(in rect: CGRect) -> Path {
+        Path { path in
+            path.addArc(center: .init(x: 100, y: 100), radius: /*20*/ radius, startAngle: .zero, endAngle: .init(degrees: 360), clockwise: true)
+            
+        }
+    }
+}
+
+
+struct mv: View {
+    @State var expand = false // animingored can also be used
+    
+    var body: some View {
+        CircleShape(radius: expand ? 100 : 8)
+            .contentShape(.rect)
+            .onTapGesture {
+                withAnimation(.smooth) {
+                    expand.toggle()
+                }
+            }
+    }
+}
+```
