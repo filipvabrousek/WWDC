@@ -174,9 +174,9 @@ struct Pol: View {
 }
 ```
 
-To-Do:
-* RemoteImmersiveSpace
-* Rotation3DLayout
-* Surface snapping
+
+
+### Widgets
+Thank you, I created new iOS project. I then added visionOS target and then visionOS widget target and it works now. :)
 
 
