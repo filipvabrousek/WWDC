@@ -536,3 +536,35 @@ struct SeeLabels: View {
 // 22611 more items are needed 19/06
 // 222556 have to be two section 19/06
 ```
+
+
+### searchable
+
+```swift
+
+// 130727 DefaultToolbarItem does not work
+struct Mefita: View {
+    @State var search = ""
+    
+    var body: some View {
+        NavigationStack {
+            //Text("Loop")
+            List {
+                ForEach(0..<100){_ in
+                    Text("Hello")
+                }
+            }
+            .searchable(text: $search)
+            .toolbar {
+                ToolbarItem(placement: .bottomBar){
+                    Button("Finally"){}
+                }
+                
+                ToolbarSpacer(.flexible, placement: .bottomBar)
+                
+                DefaultToolbarItem(kind: .search, placement: .bottomBar)
+            }
+        }
+    }
+}
+```
