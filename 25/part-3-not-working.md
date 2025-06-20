@@ -93,6 +93,42 @@ struct Defita: View {
 }
 ```
 
+```swift
+
+// 130727 DefaultToolbarItem does not work
+struct Mefita: View {
+    var body: some View {
+        NavigationStack {
+            //Text("Loop")
+            List {
+                ForEach(0..<100){_ in
+                    Text("Hello")
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .bottomBar){
+                    Button("Search"){}
+                }
+                
+                ToolbarSpacer(.flexible, placement: .bottomBar)
+                
+                DefaultToolbarItem(kind: .search, placement: .bottomBar)
+                
+                ToolbarSpacer(.fixed, placement: .bottomBar)
+                
+                ToolbarItem(placement: .bottomBar) {
+                    Button("New message"){
+                        
+                    }
+                }
+                
+                
+            }
+        }
+    }
+}
+```
+
 ## DragConfiguration
 
 ```swift
