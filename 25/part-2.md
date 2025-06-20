@@ -538,7 +538,8 @@ struct SeeLabels: View {
 ```
 
 
-### searchable
+### DefaultToolbarItem
+* needs ```.searchable```
 
 ```swift
 
