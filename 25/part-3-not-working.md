@@ -156,6 +156,76 @@ struct TransitionAnim: View {
 
 ## visionOS Surface snapping
 
+```swift
+
+struct LightFixtureView: View {
+    @Environment(\.surfaceSnappingInfo)
+    var snappingInfo: SurfaceSnappingInfo
+
+
+    var body: some View {
+        if snappingInfo.isSnapped {
+            switch SurfaceSnappingInfo.authorizationStatus {
+                case .authorized:
+                    switch snappingInfo.classification {
+                        case .table:
+                        Text("Table")
+                        
+                            //LampView()
+                        case .floor:
+                        Text("Floor")
+                           // FloorLampView()
+                        default:
+                        Text("Default")
+                          //  DefaultLampView()
+                    }
+                default:
+                    Text("Default")
+                    //DefaultLampView()
+            }
+        } else {
+            Text("Default orb")
+            //FloatingOrbLampView()
+        }
+    }
+}
+
+
+
+struct SnapTest: View {
+    @Environment(\.surfaceSnappingInfo) var snap: SurfaceSnappingInfo // 15:11.11
+    
+    @GestureState var gs: Binding<Manipulable.GestureState> = .constant(.init(transform: .identity))
+    
+    @State var translateX:CGFloat = 0
+    @State var translateY:CGFloat = 0
+    @State var translateZ:CGFloat = 0
+    
+    var body: some View {
+        VStackLayout().depthAlignment(.center) { // 151205 151213
+            Model3D(named: "Scene", bundle: realityKitContentBundle)
+               // .manipulable()
+                .offset(x: translateX, y: translateY)
+                .manipulationGesture(updating: gs) { change in
+                    print("Changed") // need to remove manioulatalble
+                    print(change.value?.transform) // Nice: 922:49 13/06/25
+                    
+                    translateX = (change.value?.transform?.translation.x) ?? 0
+                    translateY = (change.value?.transform?.translation.y) ?? 0
+                    translateZ = (change.value?.transform?.translation.z) ?? 0
+                    
+                    print("SNAP CLAS")
+                    print(snap.classification) // nil
+                }
+            
+            
+            Text("Has snapped")
+                .opacity(snap.classification == .ceiling ? 1.0 : 0.0) // 151619 was table, was wall before ceiling
+            
+        }
+    }
+}
+```
 
 
 
