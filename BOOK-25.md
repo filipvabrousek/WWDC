@@ -316,6 +316,43 @@ TabBar {
 ```
 
 
+### TabBar role .search
+
+TabBar role search allows you to separate button from all other elements.
+```swift
+struct Taba: View {
+    
+    // 181117 saw
+    var body: some View {
+        TabView {
+            Tab("Number", systemImage: "sun.min.fill"){
+                Text("A")
+            }
+            
+            Tab("Number", systemImage: "sun.min.fill"){
+                Text("A")
+            }
+            
+            Tab("Number", systemImage: "sun.min.fill", role: .search){ // 181618
+                Text("A")
+            }
+        }
+    }
+}
+```
+
+
+
+### WebView
+
+```swift
+
+
+
+```
+
+
+
 
 
 
