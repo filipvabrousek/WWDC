@@ -364,7 +364,99 @@ struct WebContentView: View {
 ```
 
 
+Ještě zmíním Liquid Glass u NavigationView:
 
+```swift
+
+struct NavoContentView: View {
+    @State private var path = NavigationPath()
+    
+    var body: some View {
+        NavigationStack(path: $path) {
+            List {
+                NavigationLink("Go to Level 1", value: "level1")
+            }
+            .navigationTitle("Root")
+            .navigationDestination(for: String.self) { value in
+                if value == "level1" {
+                    LevelOneView(path: $path)
+                } else if value == "level2" {
+                    LevelTwoView(path: $path)
+                }
+            }
+        }
+    }
+}
+
+struct LevelOneView: View {
+    @Binding var path: NavigationPath
+    
+    var body: some View {
+        VStack {
+            Text("This is Level 1")
+                .font(.title)
+        }
+        .navigationTitle("Level 1")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Next") {
+                    path.append("level2")
+                }
+            }
+        }
+    }
+}
+
+struct LevelTwoView: View {
+    @Binding var path: NavigationPath
+    
+    var body: some View {
+        VStack {
+            Text("This is Level 2")
+                .font(.title)
+        }
+        .navigationTitle("Level 2")
+       // .navigationBarBackButtonHidden(true) // hide default back
+        .toolbar {
+          /*  ToolbarItem(placement: .navigationBarLeading) {
+                Button("Custom back") {
+                    // Pop back to Level 1
+                    path.removeLast()
+                }
+            }*/
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    print("Another action")
+                } label: {
+                    HStack {
+                        Image(systemName: "sun.max.fill")
+                        Text("Share")
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Swipe back wont work with custom button
+
+```
+
+```swift
+import FoundationModels
+import Playgrounds
+
+#Playground {
+    let session = LanguageModelSession(instructions: "You are a ship expert")
+    let response = try await session.respond(to: "What is the length of Icon of the Seas" /*"Integrate 2x^(e^2) from infinity to 2"*/)
+    print("L")
+    print(response.content)
+    print("A")
+    print(response) // nothing
+    // This type is an implementation detail of the Playgrounds library. Do not use it directly.
+}
+```
 
 
 
