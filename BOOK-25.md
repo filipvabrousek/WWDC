@@ -23,6 +23,34 @@ Text lze přizpůsobit pomocí modifikátoru ```glassEffect```.
             .glassEffect()
 ```
 
+GlassEffect lze také přizpůsobit pomocí barvy. V tomto příkladu nastavíme zelenou barvu pomocí ```.green.opacity(0.3)``` a pomocí ```.interactive()``` zařídíme odezvu při interakci s tlačítkem. Pro zobrazení efektu podložíme tlačítko obrázkem.
+
+```swift
+
+struct GlassEffectView: View {
+    var body: some View {
+        
+        
+        ZStack {
+            Image("tahoe")
+            
+            Button(action: {
+                print("Hello")
+            }, label: {
+                   Image(systemName: "sun.min.fill")
+                    .foregroundStyle(.white)
+                    .padding()
+            })
+            
+            .glassEffect(.regular.tint(.green.opacity(0.3)).interactive(), in: .circle)
+            
+            
+        }
+
+    }
+}
+
+```
 
 
 
@@ -286,3 +314,10 @@ TabBar {
                 }
             }
 ```
+
+
+
+
+
+
+
