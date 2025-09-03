@@ -239,3 +239,50 @@ struct FlightaUnion: View {
 }
 
 ```
+
+
+
+## tabBarMinimizeBehavior
+S novým Liquid Glass designem Apple změnil vzhled TabBaru na tvar pilulky vznášející se nad obsahem. Pokud se uživatel TabBaru dotkne a potáhne prstem namísto klepnutí, uvidí efekt refrakce na jednotlivých ```Tab``` views.
+
+
+```swift
+struct TabMax: View {
+    var body: some View { 
+        TabView {
+            Tab("Number", systemImage: "sun.min.fill"){
+                ScrollView {     
+                    ForEach(0..<100){ a in
+                        Text("\(a)").frame(width: 400).padding()
+                    }
+                }
+            }
+            
+            Tab("Number", systemImage: "sun.min.fill"){
+               Text("Hello")
+            }
+            
+            Tab("Number", systemImage: "sun.min.fill"){
+                Text("Hello")
+            }
+        }.tabBarMinimizeBehavior(.onScrollDown)       
+    }
+}
+```
+
+
+
+### tabAccessory
+
+Pomocí ``` .tabViewBottomAccessory``` můžeme TabBaru přiřadit tlačítko, které se bude vznášet nad ním.
+
+```swift
+TabBar {
+ /*....*/
+}
+.tabViewBottomAccessory {
+                Button("Accessory") {
+                    print("150245a") // 150333 the accesory view swapping is so cool
+                }
+            }
+```
