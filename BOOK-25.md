@@ -104,14 +104,19 @@ struct BackgroundExtend: View {
 
 
 
-```GlassEffectContainer``` umožní plynulý vizuální přechod mezi tlačítkem a skupinou tlačítek.
+```GlassEffectContainer``` umožní plynulý vizuální přechod mezi tlačítkem a skupinou tlačítek. Uvnitř tohoto kontejneru vytvoříme ```VStack``` obsahující skupinu tlačítek Dále vytvoříme ```@State``` proměnnou ```isExpanded```, jejíž hodnotu změníme po tisku tlačítka. Pro tlačítka použijeme modifikátor ```buttonStyle(.glass)``` pro skleněný vzhled, a pro ```glassEffectContainer``` použijeme ```.glassEffect(.regular, in: .circle)```. Protože jsou tlačítka uvnitř bloku ```isExpanded```, budou zobrazeny pouze pokud je hodnota této property nastavená na ```true```. 
+Pro kontrolu animace můžeme na bloku ```GlassEffectContainer``` použít následující modifikátory:
+
+* ```.glassEffect(.regular, in: .circle)``` - plynulý přechod mezi tlačítky
+* ```.glassEffectTransition(.identity)``` - žádná animace
+* ```.glassEffectUnion(id: "group1", namespace: animation)``` - bude vysvětleno v dalším příkladu
 
 
 ```swift
 struct Flighta: View {
     
     @State var isExpanded = false
-    @Namespace private var animation
+//    @Namespace private var animation
     
     var body: some View {
         GlassEffectContainer(spacing: 20) { // 17:12:02 Airplane
@@ -173,4 +178,64 @@ struct Flighta: View {
         }
     }
 }
+```
+
+
+
+
+
+### glassEffectUnion
+Modifikátor ```glassEffectUnion``` nám umožní sloučit více tlačítek do jedné vizální skupiny. Nejprve vytvoříme ```GlassEffectContainer``` a tlačítkům přiřadíme ```.buttonStyle(.glassProminent)``` jako v přechozím příkladu. Mimo tělo ```body``` definujeme ```namesapce``` ', který se jmenuje ```glassSpace```. Poté pomocí ```glassEffectUnion(id: "buttons", namespace: glassSpace)``` sloučíme tlačítka do jedné vizuální skupiny.  
+
+
+```swift
+
+struct FlightaUnion: View {
+    
+    @Namespace private var glassSpace
+    
+    var body: some View {
+        GlassEffectContainer(spacing: 20) { // 17:12:02 Airplane
+            
+            VStack(spacing: 20) { // 171929 wow
+                
+                Button {
+
+                        } label: {
+                            Label("Locations", systemImage: "square.2.layers.3d.top.filled")
+                                .bold()
+                                .labelStyle(.iconOnly)
+                                .foregroundStyle(Color.black.secondary)
+                        }
+                        .buttonStyle(.glassProminent)
+       
+                 .glassEffectUnion(id: "buttons", namespace: glassSpace)
+                
+                Button {
+
+                        } label: {
+                            Label("Nice", systemImage: "square.2.layers.3d.top.filled")
+                                .bold()
+                                .labelStyle(.iconOnly)
+                                .foregroundStyle(Color.black.secondary)
+                        }
+                        .buttonStyle(.glassProminent)
+                 .glassEffectUnion(id: "buttons", namespace: glassSpace)
+                
+                Button {
+
+                        } label: {
+                            Label("Hello", systemImage: "square.2.layers.3d.top.filled")
+                                .bold()
+                                .labelStyle(.iconOnly)
+                                .foregroundStyle(Color.black.secondary)
+                        }
+                        .buttonStyle(.glassProminent)
+                 .glassEffectUnion(id: "buttons", namespace: glassSpace)
+                
+            }.tint(Color.white.opacity(0.8))
+        }
+    }
+}
+
 ```
