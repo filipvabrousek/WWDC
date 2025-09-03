@@ -344,11 +344,23 @@ struct Taba: View {
 
 
 ### WebView
+WebView slouží k zobrazení webové stránky. Nejprve definujeme proměnnou ```page```, která obsahuje instanci typu ```WebPage```. Tato instance reprezentuje danou webovou stránku. Tuto instanci dosadíme do konstruktoru typu ```WebView```. Po stisku tlačítka Hello zavoláme metodu load, která nám načte stránku apple.com. 
 
 ```swift
+struct WebContentView: View {
+    @State private var page = WebPage()
 
-
-
+    var body: some View {
+        WebView(page)
+            .onAppear {
+                page.load(URLRequest(url: URL(string: "https://www.swift.org")!))
+            }
+        
+        Button("Loa"){
+            page.load(URLRequest(url: URL(string: "https://www.apple.com")!))
+        }
+    }
+}
 ```
 
 
