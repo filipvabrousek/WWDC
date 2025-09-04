@@ -709,3 +709,39 @@ struct Symbs: View {
 }
 ```
 
+
+## Animatable 
+
+Nejprve definujeme strukturu ```Shape``` jako ```@Animatable``` (```@Animatable``` je vysvětleno v předchozích kapitolách). Ve třídě definujeme property radius, které bude rozhodovat o poloměru kruhu v metodě ```addArc```.
+
+```swift
+@Animatable
+struct CircleShape: Shape{
+    var radius: CGFloat // 192752 has to have radius
+    
+    nonisolated func path(in rect: CGRect) -> Path {
+        Path { path in
+            path.addArc(center: .init(x: 100, y: 100), radius: /*20*/ radius, startAngle: .zero, endAngle: .init(degrees: 360), clockwise: true)
+        }
+    }
+}
+```
+
+V tomto příkladu máme View ```AnimaWrapper```, kde použijeme View ```CircleShape```. Po klepnutí na tento kruh se poloměr kruhu zvětší, protože dojde ke změně hodnoty property ```expand```. Tato property je dosazená do konstruktoru ```CircleShape```, kde rozhoduje o jeho průměru. 
+```swift
+
+struct AnimWrapper: View {
+    @State var expand = false // animingored can also be used
+    
+    var body: some View {
+        CircleShape(radius: expand ? 100 : 8)
+            .contentShape(.rect)
+            .onTapGesture {
+                withAnimation(.smooth) {
+                    expand.toggle()
+                }
+            }
+    }
+}
+```
+
