@@ -509,9 +509,39 @@ Pokud chceme modelem vyplnit celý dostupný prostor, použijeme modifikátor ``
 
 ```swift
 Model3D(named: "Scene", bundle: realityKitContentBundle){ model in
-                    model.model?.resizable().scaledToFill3D() // 222131
+                    model.model?.resizable().scaledToFill3D() 
                 }
 
 ```
 
+## Změna poměru stran
+Poku chceme změnit poměr stran, použijeme modifikátor ```aspectRatio3D```. Do něj dosadíme instanci ```Size3D``` ve které specifikujeme příslušné hodnoty.
+
+```swift
+struct Pol: View {
+    var body: some View {
+        Model3D(named: "Scene", bundle: realityKitContentBundle){ res in
+            res.model?
+                .resizable()
+                .aspectRatio3D(Size3D(width: 1, height: 6, depth: 1),
+                                                  contentMode: .fill) 
+        }.frame(width: 200, height: 200)
+         .frame(depth: 200)
+         .border(Color(white: 0.75)) 
+    }
+}
+```
+
+
+## SpatialOverlay
+Modifikátor ```spatialOverlay``` nám umožní překrýt daný 3D model nějakým dalším view. V tomto případě použijeme view ```Text```.
+
+```swift
+  Model3D(named: "Scene", bundle: realityKitContentBundle)
+                .spatialOverlay {
+                    Text("Good luck!")
+                        .font(.title)
+                        .foregroundStyle(.green)
+                        .bold()
+```
 
