@@ -464,6 +464,31 @@ Pro přidání tlačítka na spodní lištu lze použít ```placement: .bottomBa
 ```
 
 
+
+## ScrollEdgeEffects
+Pro nastavení vzhledu obsahu pod navigační lištou lze použít modifikátor ```scrollEdgeEffectStyle```. Jsou k dipozici dvě možnosti:
+
+```soft``` - obsah pod navigační lištou bude rozostřen  
+```hard``` - obsah pod navigační lištou nebude rozostřen
+
+
+```swift
+struct EdgeView: View {
+    var body: some View {
+            NavigationStack {
+                List(0..<100){ i in
+                    Text("Item \(i)")
+                        .bold()
+                }.scrollEdgeEffectStyle(.hard, for: .top)
+                 .navigationTitle("Numbers")
+            }
+    }
+  }
+}
+```
+
+
+
 ## Přídavek Swift (Foundation models)
 Aktuální operační systémy uvedené v roce 2025 obsahují nový framework ```FoundationModels```. Tento framework umožňuje vývojáři použít lokální jazykové modely (uložené v zařízení). Nejprve vytvoříme instanci ```LanguageModelSession``` a zavoláme metodu ```session.respond``` s naší otázkou. Protože se jedná o asnychronní operaci, použijeme klíčové slovo ```async```. 
 
@@ -502,7 +527,6 @@ var body: some View {
 }
 }
 ```
-
 
 ## Vyplnění prostoru modelem
 Pokud chceme modelem vyplnit celý dostupný prostor, použijeme modifikátor ```resizable```, který nám umožní měnit velikost modelu, a modifikátor ```scaledToFill3D```, který modelem vyplní celý dostupný prostor.
