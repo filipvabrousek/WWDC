@@ -364,7 +364,14 @@ struct WebContentView: View {
 ```
 
 
-Ještě zmíním Liquid Glass u NavigationView:
+
+### NavigationView (přídavek, zmíním Liquid Glass)
+Použitím ```NavigationStack``` společně s ```NavigationPath``` můžeme vytvořit víceúrovňovou navigaci, která se dynamicky řídí stavem cesty. Objekt NavigationPath funguje jako zásobník, do kterého se ukládají hodnoty určující, jaké obrazovky se mají zobrazit.
+
+V kořenovém pohledu definujeme ```@State private var path = NavigationPath()```, který je následně předán do ```NavigationStack(path: $path)```. Uvnitř seznamu použijeme ```NavigationLink("Go to Level 1", value: "level1")```, který při stisknutí přidá řetězec do cesty a aktivuje přechod.
+
+Pro mapování hodnot cesty na konkrétní obrazovky slouží ```navigationDestination(for: String.self)```. 
+Díky tomu můžeme snadno určit, že hodnota "level1" zobrazí ```LevelOneView``` a hodnota `"level2" zobrazí ```LevelTwoView```.
 
 ```swift
 
@@ -438,9 +445,11 @@ struct LevelTwoView: View {
         }
     }
 }
-
-
 ```
+
+
+## Přídavek Swift (Foundation models)
+Aktuální operační systémy uvedené v roce 2025 obsahují nový framework ```FoundationModels```. Tento framework umožňuje vývojáři použít lokální jazykové modely (uložené v zařízení). Nejprve vytvoříme instanci ```LanguageModelSession``` a zavoláme metodu ```session.respond``` s naší otázkou. Protože se jedná o asnychronní operaci, použijeme klíčové slovo ```async```. 
 
 ```swift
 import FoundationModels
@@ -448,7 +457,7 @@ import Playgrounds
 
 #Playground {
     let session = LanguageModelSession(instructions: "You are a ship expert")
-    let response = try await session.respond(to: "What is the length of Icon of the Seas" /*"Integrate 2x^(e^2) from infinity to 2"*/)
+    let response = try await session.respond(to: "What is the length of Icon of the Seas")
     print("L")
     print(response.content)
     print("A")
