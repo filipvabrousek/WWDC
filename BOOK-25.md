@@ -685,3 +685,27 @@ struct RichEditora: View {
     }
 }
 ```
+
+
+## SymbolEffect
+
+Na ikonu je aplikován modifikátor ```symbolEffect(.drawOn, isActive: expand)```. Tento efekt způsobí, že se ikona při aktivaci jakoby „nakreslí“ nebo zmizí přímo před očima uživatele. Aktivace je řízena stavovou proměnnou ```expand```, která se mění po klepnutí ```.onTapGesture```.
+
+Výsledkem je jednoduchá interaktivní animace, při níž se systémový symbol dynamicky zobrazí v okamžiku dotyku.
+
+```swift
+struct Symbs: View {
+    @State var expand = false // animingored can also be used
+    
+    var body: some View {
+       Image(systemName: "square.and.arrow.up")
+            .font(.largeTitle)
+            .foregroundStyle(.orange)
+            .symbolEffect(.drawOn, isActive: expand) // 193140 drawOn 193344 nice symbol drawing 11/06/25
+            .onTapGesture {
+                expand.toggle()
+            }
+    }
+}
+```
+
