@@ -447,6 +447,37 @@ struct LevelTwoView: View {
 }
 ```
 
+Pokud přidáme více tlačítek do stejné ToolbarItem, položky se sloučí 
+
+```swift
+
+ 
+        ....navigationTitle("Terms 2")
+       // .navigationBarBackButtonHidden(true) // hide default back
+        .toolbar {
+  ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    print("Another action")
+                } label: {
+                    HStack {
+                        Image(systemName: "sun.min.fill")
+                        Text("Explain")
+                    }
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) { // 203118 will be merged 04/09/2025 Cool!
+                Button {
+                    print("Another action")
+                } label: {
+                    HStack {
+                        Image(systemName: "paperplane.fill")
+                        Text("Send")
+                    }
+                }//.glassEffectUnion(id: "buttons", namespace: glassSpace)
+            }
+```
+
 
 Pro přidání tlačítka na spodní lištu lze použít ```placement: .bottomBar```.
 
@@ -462,6 +493,9 @@ Pro přidání tlačítka na spodní lištu lze použít ```placement: .bottomBa
                 }
             }
 ```
+
+
+
 
 
 
