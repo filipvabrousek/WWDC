@@ -551,12 +551,7 @@ Pomocí view ```SpatialContainer``` můžeme zarovnat více 3D modelů v naší 
 
 ```swift
 SpatialContainer(alignment: .trailingFront) { // I think it is not aligning 13/06/25
-            Model3D(named: "Sphere", bundle: realityKitContentBundle)
-            
-            Model3D(named: "Cylinder", bundle: realityKitContentBundle)
-               
-        
-
-            
-        }
+      Model3D(named: "Sphere", bundle: realityKitContentBundle)
+      Model3D(named: "Cylinder", bundle: realityKitContentBundle)
+}
 ```
