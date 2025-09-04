@@ -599,8 +599,10 @@ struct Pol: View {
         Model3D(named: "Scene", bundle: realityKitContentBundle){ res in
             res.model?
                 .resizable()
-                .aspectRatio3D(Size3D(width: 1, height: 6, depth: 1),
-                                                  contentMode: .fill) 
+                .aspectRatio3D(Size3D(width: 1,
+                                      height: 6,
+                                      depth: 1),
+                                      contentMode: .fill) 
         }.frame(width: 200, height: 200)
          .frame(depth: 200)
          .border(Color(white: 0.75)) 
