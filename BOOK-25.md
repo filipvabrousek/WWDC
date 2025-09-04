@@ -622,7 +622,7 @@ Modifikátor ```spatialOverlay``` nám umožní překrýt daný 3D model nějak�
                         .foregroundStyle(.green)
                         .bold()
 ```
-
+ 
 
 ## SpatialContainer
 Pomocí view ```SpatialContainer``` můžeme zarovnat více 3D modelů v naší scéně. V tomto případě tyto 3D modely dopředu pomocí ```trailingFront```.
@@ -631,5 +631,36 @@ Pomocí view ```SpatialContainer``` můžeme zarovnat více 3D modelů v naší 
 SpatialContainer(alignment: .trailingFront) { // I think it is not aligning 13/06/25
       Model3D(named: "Sphere", bundle: realityKitContentBundle)
       Model3D(named: "Cylinder", bundle: realityKitContentBundle)
+}
+```
+
+
+## DefaultToolbarItem
+Pro vytvoření vyhledávacího tlačítka v ToolBaru lze použít ```DefaultToolbarItem``` o typu ```.search```. Stisk tohoto tlačítka otevře vyhledávací pole. View musí být typu ```searchable.``` (Searchable vysvětleno v dřívějších akpitolách)
+
+```swift
+struct Mefita: View {
+    @State var search = ""
+    
+    var body: some View {
+        NavigationStack {
+            //Text("Loop")
+            List {
+                ForEach(0..<100){_ in
+                    Text("Hello")
+                }
+            }
+            .searchable(text: $search)
+            .toolbar {
+                ToolbarItem(placement: .bottomBar){
+                    Button("Finally"){}
+                }
+                
+                ToolbarSpacer(.flexible, placement: .bottomBar)
+                
+                DefaultToolbarItem(kind: .search, placement: .bottomBar)
+            }
+        }
+    }
 }
 ```
