@@ -448,6 +448,22 @@ struct LevelTwoView: View {
 ```
 
 
+Pro přidání tlačítka na spodní lištu lze použít ```placement: .bottomBar```.
+
+```swift
+ ToolbarItem(placement: .bottomBar) {
+                Button {
+                    print("Another action")
+                } label: {
+                    HStack {
+                        Image(systemName: "checkmark")
+                        Text("Accept")
+                    }
+                }
+            }
+```
+
+
 ## Přídavek Swift (Foundation models)
 Aktuální operační systémy uvedené v roce 2025 obsahují nový framework ```FoundationModels```. Tento framework umožňuje vývojáři použít lokální jazykové modely (uložené v zařízení). Nejprve vytvoříme instanci ```LanguageModelSession``` a zavoláme metodu ```session.respond``` s naší otázkou. Protože se jedná o asnychronní operaci, použijeme klíčové slovo ```async```. 
 
