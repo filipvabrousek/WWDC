@@ -489,6 +489,24 @@ struct EdgeView: View {
 
 
 
+## AssistiveAccess
+```AssistiveAccess``` umožňuje přizpůsobit uživatelské rozhraní pro uživatele se zapnutým Accessibility režimem. Uvnitř view ```AssistiveAccess``` lze implementovat jednodušší uživatelské rozhraní pro zdravotně znevýhodněné uživatele.
+
+```swift
+@main
+struct tester2025_LGApp: App {
+    var body: some Scene {
+        WindowGroup {
+            EdgeView()
+        }
+        
+        AssistiveAccess { 
+            Text("Will be shown in Assisitive access")
+        } 
+    }
+}
+```
+
 ## Přídavek Swift (Foundation models)
 Aktuální operační systémy uvedené v roce 2025 obsahují nový framework ```FoundationModels```. Tento framework umožňuje vývojáři použít lokální jazykové modely (uložené v zařízení). Nejprve vytvoříme instanci ```LanguageModelSession``` a zavoláme metodu ```session.respond``` s naší otázkou. Protože se jedná o asnychronní operaci, použijeme klíčové slovo ```async```. 
 
