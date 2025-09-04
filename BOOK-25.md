@@ -545,3 +545,18 @@ Modifikátor ```spatialOverlay``` nám umožní překrýt daný 3D model nějak�
                         .bold()
 ```
 
+
+## SpatialContainer
+Pomocí view ```SpatialContainer``` můžeme zarovnat více 3D modelů v naší scéně. V tomto případě tyto 3D modely dopředu pomocí ```trailingFront```.
+
+```swift
+SpatialContainer(alignment: .trailingFront) { // I think it is not aligning 13/06/25
+            Model3D(named: "Sphere", bundle: realityKitContentBundle)
+            
+            Model3D(named: "Cylinder", bundle: realityKitContentBundle)
+               
+        
+
+            
+        }
+```
