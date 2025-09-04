@@ -664,3 +664,24 @@ struct Mefita: View {
     }
 }
 ```
+
+
+## Rich text editor
+
+Komponenta TextEditor slouží jako jednoduchý editor textu. Pokud chceme uživateli umožnit text formátovat, využijeme datový typ ```AttributedString```, který umožňuje ukládat text spolu s formátovacími vlastnostmi Dále defiujeme proměnnou ```AttributedTextSelection``` pro sledování výběru.
+
+Základ tvoří ```TextEditor```, inicializovaný vazbou na text a výběr. Modifikátor ```writingDirection(.contentBased)``` nastavuje směr psaní podle obsahu. Modifikátor ```textInputFormattingControlVisibility(.visible, for: .all)``` zajistí zobrazení všech formátovacích ovládacích prvků. Pevná výška je určena pomocí ```frame(height: 900)```.
+
+```swift
+struct RichEditora: View {
+    @State var rich = AttributedString()
+    @State var sel = AttributedTextSelection() // 110709
+
+    var body: some View {
+        TextEditor(text: $rich, selection: $sel)
+            .writingDirection(strategy: .contentBased) 
+            .textInputFormattingControlVisibility(.visible, for: .all) 
+            .frame(height: 900)
+    }
+}
+```
