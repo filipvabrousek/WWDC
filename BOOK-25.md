@@ -485,4 +485,23 @@ import Playgrounds
 
 
 
+## visionOS (přídavek)
+### depthAlignment
+Pro tvorbu layoutu ve aplikacích pro Apple Vision Pro lze využít view ```VStackLayout```. Tento view můžeme zarovnat do přední části našeho prostoru pomocí ```depthAlignment(.front)```.  Pomocí modifikátoru ```.rotation3DLayout``` můžeme naklopit 3D Model. Pokud chceme být schopní element přesouvat 3D prostorem, použijeme modifikátor ```manipulable```.
+
+```swift
+struct Maniupl: View {
+var body: some View {
+            VStackLayout().depthAlignment(.front){ 
+                Model3D(named: "Scene", bundle: realityKitContentBundle)
+                    .padding(.bottom, 50)
+                    .rotation3DLayout(Rotation3D(angle: .degrees(20), axis: .xyz)) 
+                    .manipulable()
+                Text("Hello").bold()
+            }
+}
+}
+```
+
+
 
