@@ -393,10 +393,10 @@ struct LevelOneView: View {
     
     var body: some View {
         VStack {
-            Text("This is Level 1")
+            Text("Terms screen 1")
                 .font(.title)
         }
-        .navigationTitle("Level 1")
+        .navigationTitle("Terms 1")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Next") {
@@ -412,10 +412,10 @@ struct LevelTwoView: View {
     
     var body: some View {
         VStack {
-            Text("This is Level 2")
+            Text("Terms screen 2")
                 .font(.title)
         }
-        .navigationTitle("Level 2")
+        .navigationTitle("Terms 2")
        // .navigationBarBackButtonHidden(true) // hide default back
         .toolbar {
           /*  ToolbarItem(placement: .navigationBarLeading) {
@@ -430,8 +430,8 @@ struct LevelTwoView: View {
                     print("Another action")
                 } label: {
                     HStack {
-                        Image(systemName: "sun.max.fill")
-                        Text("Share")
+                        Image(systemName: "checkmark")
+                        Text("Accept")
                     }
                 }
             }
@@ -439,7 +439,6 @@ struct LevelTwoView: View {
     }
 }
 
-// Swipe back wont work with custom button
 
 ```
 
