@@ -504,4 +504,14 @@ var body: some View {
 ```
 
 
+## Vyplnění prostoru modelem
+Pokud chceme modelem vyplnit celý dostupný prostor, použijeme modifikátor ```resizable```, který nám umožní měnit velikost modelu, a modifikátor ```scaledToFill3D```, který modelem vyplní celý dostupný prostor.
+
+```swift
+Model3D(named: "Scene", bundle: realityKitContentBundle){ model in
+                    model.model?.resizable().scaledToFill3D() // 222131
+                }
+
+```
+
 
