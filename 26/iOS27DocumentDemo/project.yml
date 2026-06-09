@@ -1,0 +1,30 @@
+name: iOS27DocumentDemo
+options:
+  bundleIdPrefix: com.h7
+  deploymentTarget:
+    iOS: "27.0"
+targets:
+  iOS27DocumentDemo:
+    type: application
+    platform: iOS
+    sources: [Sources]
+    info:
+      path: Sources/Info.plist
+      properties:
+        # Declare that this app edits plain-text documents, so the system
+        # document browser / Files integration knows what it can open + create.
+        UISupportsDocumentBrowser: true
+        CFBundleDocumentTypes:
+          - CFBundleTypeName: Plain Text
+            LSHandlerRank: Owner
+            LSItemContentTypes:
+              - public.plain-text
+        UILaunchScreen: {}
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.h7.iOS27DocumentDemo
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "6.0"
+        TARGETED_DEVICE_FAMILY: "1,2"
+# Build with:  xcodegen generate   (requires Xcode 27 / iOS 27 SDK)
