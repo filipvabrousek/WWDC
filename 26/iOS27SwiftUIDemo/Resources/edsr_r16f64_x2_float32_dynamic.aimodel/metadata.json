@@ -1,0 +1,7 @@
+{
+  "description" : "EDSR (Enhanced Deep Residual Networks for Single Image Super-Resolution) upscales low-resolution images by a fixed integer factor (2x, 3x, 4x). Source: https:\/\/github.com\/Coloquinte\/torchSR",
+  "author" : "B. Lim et al.",
+  "assetVersion" : "2.0",
+  "creationDate" : "20260609T094357Z",
+  "license" : "MIT"
+}

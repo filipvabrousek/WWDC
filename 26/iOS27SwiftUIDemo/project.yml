@@ -1,0 +1,31 @@
+name: iOS27SwiftUIDemo
+options:
+  bundleIdPrefix: com.h7
+  deploymentTarget:
+    iOS: "27.0"
+targets:
+  iOS27SwiftUIDemo:
+    type: application
+    platform: iOS
+    sources:
+      - Sources
+      # .aimodel is a directory bundle — add it as a folder reference (type: folder)
+      # so Xcode copies it into the app whole, not flattened into loose files.
+      - path: Resources/edsr_r16f64_x2_float32_static.aimodel
+        type: folder
+        buildPhase: resources
+      - path: Resources/edsr_r16f64_x2_float32_dynamic.aimodel
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.h7.iOS27SwiftUIDemo
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "6.0"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+# Generate the Xcode project with:  xcodegen generate
+# Requires Xcode 27 (iOS 27 SDK).
