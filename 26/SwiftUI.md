@@ -1,6 +1,6 @@
 ## .reordable, .reorderContainer
 
-```
+```swift
 import SwiftUI
 
 struct Item: Identifiable {
