@@ -9,7 +9,7 @@ import SwiftUI
 struct ContentView: View {
     // Renamed from `Tab` so it doesn't shadow SwiftUI's own `Tab` view —
     // otherwise `Tab("Feed", …)` below would try to construct this enum.
-    enum Screen: Hashable { case feed, toolbar, images, ai, alerts }
+    enum Screen: Hashable { case feed, toolbar, images, ai, more, alerts }
 
     @State private var selection: Screen = .feed
 
@@ -26,6 +26,9 @@ struct ContentView: View {
             }
             Tab("Core AI", systemImage: "cpu", value: Screen.ai) {
                 SuperResolutionView()
+            }
+            Tab("More", systemImage: "sparkles", value: Screen.more) {
+                MoreIOS27View()
             }
             // iOS 27: the prominent role pulls this tab out into its own
             // trailing slot, visually separated from the main group.

@@ -16,7 +16,27 @@ struct iOS27SwiftUIDemoApp: App {
         WindowGroup {
            // SwipeTest()
            // MyDemo()
-            ContentView()
+         //   ContentView()
+            // NiceToolbar()
+            
+            
+           // ConfDia()
+            
+          //  MenuNice()
+            
+           // PressChange()
+            
+           // PhotosShared()
+            
+           // PhotosMeta()
+            
+            // Redempt()
+            
+           // MPicker()
+            
+           // PhotosShared()
+            
+            PhotosMetax()
         }
     }
 }
