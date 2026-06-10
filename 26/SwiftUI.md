@@ -134,3 +134,64 @@ struct CachedImagesView: View {
 }
 
 ```
+
+
+
+## ToolbarOverflowMenu
+## toolbarMinimizeBehavior
+
+```swift
+struct NiceToolbar: View {
+    var body: some View {
+        NavigationStack {
+            
+            ScrollView {
+                ForEach(0..<1000){_ in
+                    
+                    
+                    Text("Wow")
+                }
+            }.navigationTitle("Hello")
+            
+            
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    
+          
+                    Button("Save") {}
+                }
+                .visibilityPriority(.high) // ⚠️ verify: applied to ToolbarContent in Xcode 27
+                
+                
+                ToolbarItem(placement: .primaryAction) {
+                    Button("Save") {}
+                }
+                .visibilityPriority(.high) // ⚠️ verify: applied to ToolbarContent in Xcode 27
+                
+                ToolbarItem(placement: .topBarPinnedTrailing) {  // far RIGHT, pinned
+                        Button { } label: { Image(systemName: "star") }
+                    }
+                
+                // Why merged up?
+                // 230221 cool
+                
+                ToolbarOverflowMenu {
+                    Button("First") { // 225733 cool!
+                        
+                    }
+                    
+                    Button("Second") { // 225733 cool!
+                        
+                    }
+                    
+                    Button("Third") { // 225733 cool!
+                        
+                    }
+                }
+            }.toolbarMinimizeBehavior(.onScrollDown, for: .navigationBar) // 10/06 00:43 cool
+        }
+    }
+}
+
+
+```
