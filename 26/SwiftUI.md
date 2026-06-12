@@ -195,3 +195,300 @@ struct NiceToolbar: View {
 
 
 ```
+
+
+
+next day
+
+## @Environment(\.appearsActive) 
+```swift
+struct SidebarFoot: View { // for multi-window
+    @Environment(\.appearsActive) private var appears // 214015
+    
+    var body: some View {
+        Text("Hello")
+            .opacity(appears ? 1 : 0.5)
+    }
+}
+```
+
+
+##  .labelStyle(.titleAndIcon) 
+```swift
+struct CommandViews: View { // for multi-window
+    var body: some View {
+       Label("Hello", systemImage: "sun.min.fill")
+            .labelStyle(.titleAndIcon) // 214920
+    }
+}
+```
+
+
+## confirmationDialog
+* activates after we set ```itemToDelete = item```
+  
+```swift
+struct ConfDia: View { // for multi-window
+    @State var items: [Itema] = [
+        .init(name: "Hello"),
+        .init(name: "World")
+    ]
+
+    @State var itemToDelete: Itema?
+    
+    var body: some View {
+        ForEach(items){ item in
+            Text(item.name)
+                .onTapGesture {
+                    itemToDelete = item
+                }
+        }.confirmationDialog("Delete", item: $itemToDelete){ item in
+            Button("Delete \(item.name)", role: .destructive) {
+                               items.removeAll { $0.id == item.id }
+                           } // 221346 very cool
+        }
+    }
+}
+```
+
+
+## onMenuItemHighlight
+
+```swift
+
+struct MenuNice: View {
+    var body: some View {
+        Menu("A") {
+            Button("A") {
+                print("A")
+            }
+            Button("B") {
+                print("B")
+            }
+            Button("C") {
+                print("C")
+            }.onMenuItemHighlight { high in // 221548 cool
+                print("HIGH \(high)")
+            }
+        }
+    }
+}
+```
+
+
+
+## ignoresSafeArea(alignment)
+
+```swift
+
+struct Coolp: View {
+    var body: some View {
+        Text("Nice!")
+            .ignoresSafeArea(edges: .all, alignment: .bottomLeading) // 222234
+    }
+}
+```
+
+
+
+## onTapGesture - pencil
+
+```swift
+
+struct Tapper: View {
+    var body: some View {
+        Text("Nice!") // 222524 pencil
+            .onTapGesture(inputKinds: .pencil, perform: { coord in
+                print(coord.x * coord.y)
+            })
+    }
+}
+```
+
+## onPressingChanged
+
+```swift
+struct PressChange: View {
+    @State var kill = 0
+    
+    var body: some View {
+        Text("Nice!") // 222524 pencil
+            .onLongPressGesture {
+                print("Hello")
+              
+            } onPressingChanged: { change in
+                kill += 1
+                
+                if kill > 1 {
+                    print("Changed")
+                }
+            }
+    }
+}
+```
+
+
+
+
+## delta
+
+```swift
+struct ScaleDelta: View {
+    var body: some View {
+        Text("Hello")
+            .font(.largeTitle)
+            .gesture(MagnificationGesture(minimumScaleDelta: 0.9)) // 224118 arg
+    }
+}
+```
+
+
+## PhotosUI
+
+
+```swift
+
+import PhotosUI
+
+struct PhotosMeta: View {
+    @State private var selection: PhotosPickerItem?
+    @State private var picked: Image?
+
+    var body: some View {
+        VStack(spacing: 16) {
+            PhotosPicker("Pick a photo", selection: $selection, matching: .images)
+                // Strip caption metadata from the picked item before your app
+                // receives it. It's an OptionSet — combine if you want:
+                //   .photosPickerMetadataOptions([.removeCaptions])
+                .photosPickerMetadataOptions(.removeCaptions)
+
+            picked?
+                .resizable()
+                .scaledToFit()
+                .frame(maxHeight: 300)
+                .clipShape(.rect(cornerRadius: 12))
+        }
+        .padding()
+        .onChange(of: selection) { _, item in
+            guard let item else { return }
+            Task {
+                if let data = try? await item.loadTransferable(type: Data.self),
+                   let ui = UIImage(data: data) {
+                    picked = Image(uiImage: ui)
+                }
+            }
+        }
+    }
+}
+```
+
+
+
+## .photosSharedAlbumCreationSheet
+## .photosSharedAlbumCustomizationSheet
+## .photosSharedAlbumPostingSheet
+
+```swift
+
+struct PhotosShared: View {
+    @State var isp = false // 224348
+    @State var ispa = false // 224348
+    @State var ispc = false // 224348
+    var photoLib = PHPhotoLibrary.shared()
+    var items = [PhotosPickerItem]()
+    
+    var body: some View {
+        Button("Wow"){
+            isp = true
+        }.photosSharedAlbumCreationSheet(isPresented: $isp, photoLibrary: photoLib) // 2250101. album not shown?
+      
+        Button("Wow"){ // freezes
+            ispa = true
+        }.photosSharedAlbumCustomizationSheet(isPresented: $ispa, albumIdentifier: "a", photoLibrary: photoLib) // 2250101. album not shown?
+        
+        Button("Wow"){ // freezes
+            ispc = true
+            // ???
+        }.photosSharedAlbumPostingSheet(isPresented: $ispc, items: items, photoLibrary: photoLib) //234102
+    }
+}
+```
+
+
+## .offerCodeRedemption
+```swift
+import StoreKit
+
+struct Redempt: View {
+    @State var off = false
+    
+    var body: some View {
+        Button("Redemp"){
+            off.toggle()
+        }.offerCodeRedemption(options: [], isPresented: $off) { res in // 230812
+            print("Loop")
+        }
+    }
+} // 232703 cool redempt, ign-in requested
+```
+
+
+
+### musicPicker
+```swift
+import MusicKit // 231002 cool
+
+struct Picka: PickableMusicItem {
+    let id: MusicItemID
+    // 231807
+    
+}
+
+struct MPicker: View {
+    @State var show = false
+    @State var sel = [Song]() // 233427 cool not my custom!
+    
+    var body: some View {
+        Button("Present music picker"){
+            show.toggle() // = MusicItemID(stringLiteral: "A") // 231842 cool
+        }.musicPicker(isPresented: $show, selection: $sel) // 231649
+        // 233344 saw it
+    }
+}
+```
+
+
+
+### photosMetax
+
+```swift
+struct PhotosMetax: View {
+    @State private var selection: PhotosPickerItem?
+    @State private var picked: Image?
+
+    var body: some View {
+        VStack(spacing: 16) {
+            PhotosPicker("Pick a photo", selection: $selection, matching: .images)
+                .photosPickerMetadataOptions(.removeCaptions)   // strip captions on import
+                .photosPickerSearchText("WWDC26") //234649, prefiill 242741 cool!!!
+            
+            picked?
+                .resizable()
+                .scaledToFit()
+                .frame(maxHeight: 300)
+                .clipShape(.rect(cornerRadius: 12))
+        }
+        .padding()
+        .onChange(of: selection) { _, item in
+            guard let item else { return }
+            Task {
+                if let data = try? await item.loadTransferable(type: Data.self),
+                   let ui = UIImage(data: data) {
+                    picked = Image(uiImage: ui)
+                }
+            }
+        }
+    }
+}
+```
+
